@@ -1,0 +1,376 @@
+/**
+ * Chad Sia Media - Thank You & Next Steps Stylesheet
+ * Location Page Light Theme Architecture
+ * Colors: Surface #f5f5f7, Card #ffffff, Primary #4968f8, Accent #10b981
+ */
+
+:root {
+  --cs-ty-bg: #f5f5f7;
+  --cs-ty-surface: #ffffff;
+  --cs-ty-border: #e5e7eb;
+  --cs-ty-primary: #4968f8;
+  --cs-ty-primary-hover: #3553eb;
+  --cs-ty-primary-glow: rgba(73, 104, 248, 0.22);
+  --cs-ty-accent: #10b981;
+  --cs-ty-text-head: #111827;
+  --cs-ty-text-body: #4b5563;
+  --cs-ty-text-muted: #6b7280;
+  --cs-font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cs-font-display: 'Outfit', sans-serif;
+}
+
+.cs-ty-wrapper {
+  background-color: var(--cs-ty-bg);
+  color: var(--cs-ty-text-body);
+  font-family: var(--cs-font-sans);
+  min-height: 100vh;
+  padding: 60px 0 100px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.cs-ty-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header & Celebration Hero */
+.cs-ty-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.cs-ty-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent !important;
+  border: none !important;
+  color: var(--cs-ty-accent);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin-bottom: 16px;
+  box-shadow: none !important;
+}
+
+.cs-ty-badge i {
+  color: var(--cs-ty-accent);
+  font-size: 1rem;
+}
+
+.cs-ty-title {
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--cs-ty-text-head);
+  letter-spacing: -0.03em;
+  margin: 0 auto 16px;
+  max-width: 820px;
+}
+
+.cs-ty-title .gradient-text {
+  color: var(--cs-ty-primary);
+}
+
+.cs-ty-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--cs-ty-text-body);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* 3-Step Roadmap Section */
+.cs-ty-steps-card {
+  background: var(--cs-ty-surface);
+  border: 1px solid var(--cs-ty-border);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 36px;
+}
+
+.cs-ty-section-head {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cs-ty-section-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cs-ty-text-head);
+  margin: 0 0 8px;
+}
+
+.cs-ty-section-desc {
+  font-size: 0.95rem;
+  color: var(--cs-ty-text-muted);
+  margin: 0;
+}
+
+.cs-ty-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cs-ty-step-item {
+  background: #f8fafc;
+  border: 1px solid var(--cs-ty-border);
+  border-radius: 14px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.cs-ty-step-item:hover {
+  background: #ffffff;
+  border-color: rgba(73, 104, 248, 0.3);
+  box-shadow: 0 6px 20px rgba(73, 104, 248, 0.08);
+  transform: translateY(-2px);
+}
+
+.cs-ty-step-num {
+  font-family: var(--cs-font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--cs-ty-primary);
+  background: #eef2ff;
+  border: 1px solid rgba(73, 104, 248, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.cs-ty-step-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cs-ty-text-head);
+  margin: 0 0 10px;
+}
+
+.cs-ty-step-text {
+  font-size: 0.9rem;
+  color: var(--cs-ty-text-body);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Fast-Track Calendly Banner */
+.cs-ty-calendly-card {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  border-radius: 20px;
+  padding: 38px 40px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 36px;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.15);
+}
+
+.cs-ty-calendly-left {
+  max-width: 620px;
+}
+
+.cs-ty-calendly-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(73, 104, 248, 0.2);
+  border: 1px solid rgba(73, 104, 248, 0.4);
+  color: #93c5fd;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.cs-ty-calendly-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.cs-ty-calendly-desc {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cs-ty-calendly-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--cs-ty-primary);
+  color: #ffffff !important;
+  font-family: var(--cs-font-sans);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 15px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px var(--cs-ty-primary-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.cs-ty-calendly-btn:hover {
+  background: var(--cs-ty-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(73, 104, 248, 0.4);
+}
+
+/* Secondary Grid: Channels & Quick Actions */
+.cs-ty-subgrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+.cs-ty-info-box {
+  background: var(--cs-ty-surface);
+  border: 1px solid var(--cs-ty-border);
+  border-radius: 18px;
+  padding: 30px 26px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.cs-ty-box-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cs-ty-text-head);
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-ty-channels-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.cs-ty-channel-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--cs-ty-border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--cs-ty-text-head);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cs-ty-channel-link:hover {
+  background: #eef2ff;
+  border-color: rgba(73, 104, 248, 0.3);
+  color: var(--cs-ty-primary);
+  transform: translateX(2px);
+}
+
+.cs-ty-channel-link i {
+  color: var(--cs-ty-primary);
+  font-size: 0.95rem;
+}
+
+.cs-ty-actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-ty-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1px solid var(--cs-ty-border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--cs-ty-text-head);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.cs-ty-action-btn:hover {
+  background: #ffffff;
+  border-color: var(--cs-ty-primary);
+  color: var(--cs-ty-primary);
+  box-shadow: 0 2px 10px rgba(73, 104, 248, 0.08);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .cs-ty-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cs-ty-calendly-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+  }
+
+  .cs-ty-calendly-btn {
+    width: 100%;
+  }
+
+  .cs-ty-subgrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-ty-wrapper {
+    padding: 40px 0 70px;
+  }
+
+  .cs-ty-steps-card {
+    padding: 26px 18px;
+    border-radius: 16px;
+  }
+
+  .cs-ty-channels-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-ty-hero {
+    margin-bottom: 32px;
+  }
+
+  .cs-ty-title {
+    font-size: 2rem;
+  }
+}

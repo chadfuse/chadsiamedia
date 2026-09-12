@@ -1,0 +1,1524 @@
+/**
+ * Chad Sia Media - Location Page Design System
+ * Inspired by modern AI Platform Architecture (uupm.cc/demo/ai-chatbot-platform)
+ * Primary Brand Color: #4968F8 (replaces #6366f1) | Secondary Status: #10B981
+ * Typography: Space Grotesk (Headings) & DM Sans (Body)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Outfit:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Surface & Base */
+  --cs-bg: #f5f5f7;
+  --cs-bg-subtle: #ffffff;
+  --cs-bg-card: #ffffff;
+  --cs-border: #e5e7eb;
+  --cs-border-light: #f1f5f9;
+  
+  /* Brand Colors */
+  --cs-primary: #4968f8;
+  --cs-primary-dark: #3553eb;
+  --cs-primary-light: #eef2ff;
+  --cs-primary-text: #1d4ed8;
+  --cs-primary-accent: #818cf8;
+  --cs-secondary: #10b981;
+  --cs-gold: #f59e0b;
+  
+  /* Gradients (for backgrounds and containers only) */
+  --cs-gradient-primary: linear-gradient(135deg, #4968f8 0%, #818cf8 100%);
+  --cs-gradient-banner: linear-gradient(135deg, #4968f8 0%, #596dd6 100%);
+  
+  /* High-Contrast Typography */
+  --cs-heading: #111827;
+  --cs-heading-dark: #09090b;
+  --cs-text: #1f2937;
+  --cs-text-muted: #52525b;
+  --cs-text-faint: #6b7280;
+  
+  /* Typography Families */
+  --cs-font: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --cs-font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Radii & Shadows */
+  --cs-radius-sm: 8px;
+  --cs-radius-md: 12px;
+  --cs-radius-lg: 16px;
+  --cs-radius-xl: 20px;
+  --cs-radius-full: 9999px;
+  
+  --cs-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --cs-shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --cs-shadow-lg: 0 12px 32px -4px rgba(73, 104, 248, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --cs-shadow-hover: 0 16px 36px -4px rgba(73, 104, 248, 0.18);
+  
+  --cs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================================
+   Base Wrapper & Global Layout
+   ========================================================================= */
+.cs-loc-wrapper {
+  background: var(--cs-bg);
+  color: var(--cs-text);
+  font-family: var(--cs-font);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 60px;
+  overflow-wrap: break-word;
+}
+
+.cs-loc-wrapper h1,
+.cs-loc-wrapper h2,
+.cs-loc-wrapper h3,
+.cs-hero-title,
+.cs-sec-title,
+.cs-card-title {
+  font-family: var(--cs-font-display);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--cs-heading);
+  overflow-wrap: break-word;
+}
+
+/* Accessible Focus-Visible Navigation (WCAG 2.4.7 AA) */
+.cs-loc-wrapper a:focus-visible,
+.cs-loc-wrapper button:focus-visible,
+.cs-loc-wrapper [type="button"]:focus-visible,
+.cs-loc-wrapper [type="submit"]:focus-visible,
+.cs-loc-wrapper summary:focus-visible,
+.cs-loc-wrapper input:focus-visible,
+.cs-loc-wrapper select:focus-visible,
+.cs-loc-wrapper textarea:focus-visible {
+  outline: 2px solid var(--cs-primary) !important;
+  outline-offset: 3px !important;
+  border-radius: var(--cs-radius-sm);
+}
+
+.cs-loc-wrapper button:not(:focus-visible),
+.cs-loc-wrapper [type="button"]:not(:focus-visible),
+.cs-loc-wrapper [type="submit"]:not(:focus-visible) {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+  outline: none;
+}
+
+/* Motion Accessibility (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  .cs-loc-wrapper *,
+  .cs-loc-wrapper *::before,
+  .cs-loc-wrapper *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.cs-loc-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cs-section-alt {
+  background: var(--cs-bg-subtle);
+  border-top: 1px solid var(--cs-border);
+  border-bottom: 1px solid var(--cs-border);
+}
+
+/* =========================================================================
+   Signature AI Platform Utilities (Gradients, Text, Animations)
+   ========================================================================= */
+.gradient-primary {
+  background: var(--cs-gradient-primary) !important;
+}
+
+.gradient-text,
+.cs-highlight {
+  color: var(--cs-primary);
+  font-weight: 800;
+  display: inline;
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--cs-primary);
+  animation: typing-dot 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse-status {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.status-dot-live {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--cs-secondary);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  animation: pulse-status 2s ease-in-out infinite;
+}
+
+/* =========================================================================
+   Breadcrumbs & Eyebrow
+   ========================================================================= */
+.cs-loc-breadcrumbs {
+  padding: 24px 0 12px;
+  font-size: 13px;
+}
+.cs-loc-breadcrumbs ol {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.cs-loc-breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cs-text-muted);
+}
+.cs-loc-breadcrumbs li:not(:last-child)::after {
+  content: "/";
+  color: var(--cs-text-muted);
+  font-size: 11px;
+}
+.cs-loc-breadcrumbs a {
+  color: var(--cs-text-muted);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s var(--cs-ease);
+}
+.cs-loc-breadcrumbs a:hover {
+  color: var(--cs-primary-text);
+}
+.cs-loc-breadcrumbs li[aria-current="page"] {
+  color: var(--cs-heading);
+  font-weight: 600;
+}
+
+.cs-eyebrow,
+.cs-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none !important;
+  color: var(--cs-primary-text);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.cs-eyebrow i,
+.cs-badge i,
+.cs-eyebrow svg,
+.cs-badge svg {
+  display: none !important;
+}
+
+.cs-badge-dot {
+  display: none !important;
+}
+
+.cs-sec-heading-group {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.cs-sec-title {
+  font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 800;
+  color: var(--cs-heading);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.cs-sec-desc,
+.cs-sec-sub {
+  font-size: 17px;
+  color: var(--cs-text-muted);
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 65ch;
+}
+
+/* =========================================================================
+   Buttons & CTAs (Rounded 12px, Smooth Glow Lift)
+   ========================================================================= */
+.cs-btn,
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--cs-radius-md);
+  text-decoration: none;
+  transition: transform 0.2s var(--cs-ease), box-shadow 0.2s var(--cs-ease), background 0.2s var(--cs-ease), border-color 0.2s var(--cs-ease);
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.cs-btn-primary,
+.btn-primary {
+  background: var(--cs-primary);
+  color: #ffffff !important;
+  border: 1px solid var(--cs-primary);
+  box-shadow: 0 4px 14px rgba(73, 104, 248, 0.25);
+}
+.cs-btn-primary:hover,
+.btn-primary:hover {
+  background: var(--cs-primary-dark);
+  border-color: var(--cs-primary-dark);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(73, 104, 248, 0.35);
+}
+
+.cs-btn-outline,
+.btn-secondary {
+  background: #ffffff;
+  color: var(--cs-heading);
+  border: 2px solid var(--cs-border);
+}
+.cs-btn-outline:hover,
+.btn-secondary:hover {
+  background: #ffffff;
+  border-color: var(--cs-primary);
+  color: var(--cs-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(73, 104, 248, 0.1);
+}
+
+.cs-btn-arrow {
+  transition: transform 0.2s var(--cs-ease);
+}
+.cs-btn:hover .cs-btn-arrow,
+.btn-primary:hover .cs-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* =========================================================================
+   Hero Section & Interactive AI Simulation Card
+   ========================================================================= */
+.cs-loc-hero {
+  padding: 40px 0 60px;
+}
+
+.cs-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.cs-hero-title {
+  font-size: clamp(34px, 4.4vw, 52px);
+  font-weight: 800;
+  color: var(--cs-heading);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.cs-hero-sub {
+  font-size: 18px;
+  color: var(--cs-text-muted);
+  line-height: 1.65;
+  margin: 0 0 28px;
+  max-width: 65ch;
+}
+
+/* Interactive AI Assistant / AEO Simulator Card */
+.cs-aeo-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  padding: 0;
+  margin-bottom: 32px;
+  box-shadow: var(--cs-shadow-md);
+  overflow: hidden;
+  transition: border-color 0.2s var(--cs-ease), box-shadow 0.2s var(--cs-ease);
+}
+
+.cs-aeo-card:hover {
+  border-color: var(--cs-primary);
+  box-shadow: var(--cs-shadow-lg);
+}
+
+.cs-aeo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--cs-border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cs-heading);
+}
+
+.cs-aeo-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-aeo-header-left i {
+  color: var(--cs-primary);
+  font-size: 14px;
+}
+
+.cs-aeo-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cs-secondary);
+}
+
+.cs-aeo-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--cs-bg);
+}
+
+.cs-chat-bubble-ai {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-md);
+  padding: 14px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: var(--cs-shadow-sm);
+}
+
+.cs-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--cs-radius-sm);
+  background: var(--cs-gradient-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.cs-aeo-text {
+  font-size: 15px;
+  color: var(--cs-text);
+  line-height: 1.65;
+  margin: 0;
+  font-weight: 500;
+}
+
+.cs-chat-typing-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 44px;
+}
+
+.cs-hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cs-hero-media {
+  position: relative;
+}
+
+.cs-hero-img-wrap {
+  position: relative;
+  border-radius: var(--cs-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--cs-shadow-lg);
+  border: 1px solid var(--cs-border);
+  background: #ffffff;
+}
+
+.cs-hero-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s var(--cs-ease);
+}
+
+.cs-hero-img-wrap:hover img {
+  transform: scale(1.02);
+}
+
+.cs-floating-stat {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: var(--cs-radius-lg);
+  box-shadow: var(--cs-shadow-lg);
+  border: 1px solid var(--cs-border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cs-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--cs-radius-md);
+  background: var(--cs-gradient-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.cs-stat-info strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--cs-heading);
+  line-height: 1.35;
+}
+
+.cs-stat-info span {
+  font-size: 12px;
+  color: var(--cs-text-muted);
+}
+
+/* =========================================================================
+   Stats Bar Grid
+   ========================================================================= */
+.cs-loc-stats-sec {
+  padding: 50px 0;
+  background: var(--cs-bg-subtle);
+  border-top: 1px solid var(--cs-border);
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.cs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.cs-stat-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--cs-shadow-sm);
+  transition: transform 0.25s var(--cs-ease), box-shadow 0.25s var(--cs-ease), border-color 0.25s var(--cs-ease);
+}
+
+.cs-stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--cs-primary);
+  box-shadow: var(--cs-shadow-md);
+}
+
+.cs-stat-card-num {
+  font-family: var(--cs-font-display);
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--cs-primary);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.cs-stat-card-lbl {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cs-heading);
+}
+
+/* =========================================================================
+   1. WHAT SECTION (Capabilities & Services Grid)
+   ========================================================================= */
+.cs-loc-services {
+  padding: 85px 0;
+}
+
+.cs-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.cs-service-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-xl);
+  padding: 36px;
+  box-shadow: var(--cs-shadow-sm);
+  transition: transform 0.25s var(--cs-ease), box-shadow 0.25s var(--cs-ease), border-color 0.25s var(--cs-ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--cs-shadow-hover);
+  border-color: var(--cs-primary);
+}
+
+.cs-service-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cs-service-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--cs-radius-md);
+  background: rgba(73, 104, 248, 0.1);
+  color: var(--cs-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: background 0.2s var(--cs-ease), color 0.2s var(--cs-ease);
+}
+
+.cs-service-card:hover .cs-service-icon-box {
+  background: var(--cs-primary);
+  color: #ffffff;
+}
+
+.cs-service-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cs-heading);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.cs-service-desc {
+  font-size: 15px;
+  color: var(--cs-text);
+  line-height: 1.65;
+  margin: 0 0 24px;
+  max-width: 65ch;
+}
+
+.cs-service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.cs-service-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--cs-heading);
+  font-weight: 500;
+}
+
+.cs-feature-check {
+  color: var(--cs-secondary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.cs-service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cs-primary);
+  text-decoration: none;
+  transition: gap 0.2s var(--cs-ease), color 0.2s var(--cs-ease);
+}
+.cs-service-link:hover {
+  gap: 12px;
+  color: var(--cs-primary-dark);
+}
+
+/* =========================================================================
+   2. WHO SECTION (Direct Senior Engineering Expertise)
+   ========================================================================= */
+.cs-loc-who {
+  padding: 85px 0;
+}
+
+.cs-who-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.cs-who-lead {
+  font-size: 18px;
+  color: var(--cs-heading);
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.cs-who-profile p {
+  font-size: 16px;
+  color: var(--cs-text);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 65ch;
+}
+
+.cs-who-highlights {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.cs-who-highlight-pill {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  padding: 16px 22px;
+  flex: 1;
+  min-width: 140px;
+  box-shadow: var(--cs-shadow-sm);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cs-who-highlight-pill:hover {
+  border-color: var(--cs-primary);
+  transform: translateY(-2px);
+}
+
+.cs-who-highlight-pill strong {
+  display: block;
+  font-family: var(--cs-font-display);
+  font-size: 20px;
+  color: var(--cs-primary);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.cs-who-highlight-pill span {
+  font-size: 13px;
+  color: var(--cs-heading);
+  font-weight: 600;
+}
+
+.cs-who-target-box {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-xl);
+  padding: 36px;
+  box-shadow: var(--cs-shadow-md);
+}
+
+.cs-who-target-box h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cs-heading);
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+
+.cs-who-target-box > p {
+  font-size: 15px;
+  color: var(--cs-text-muted);
+  margin: 0 0 24px;
+}
+
+.cs-target-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-target-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.cs-target-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--cs-radius-md);
+  background: rgba(73, 104, 248, 0.1);
+  color: var(--cs-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cs-target-list strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cs-heading);
+  margin-bottom: 2px;
+  line-height: 1.35;
+}
+
+.cs-target-list span {
+  font-size: 13px;
+  color: var(--cs-text);
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   3. WHY SECTION (Feature Cards & Pillars)
+   ========================================================================= */
+.cs-loc-why {
+  padding: 85px 0;
+}
+
+.cs-why-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.cs-why-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-xl);
+  padding: 30px 24px;
+  box-shadow: var(--cs-shadow-sm);
+  position: relative;
+  transition: transform 0.25s var(--cs-ease), box-shadow 0.25s var(--cs-ease), border-color 0.25s var(--cs-ease);
+}
+
+.cs-why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--cs-shadow-hover);
+  border-color: var(--cs-primary);
+}
+
+.cs-why-badge-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--cs-primary);
+  background: rgba(73, 104, 248, 0.08);
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--cs-radius-full);
+  margin-bottom: 16px;
+}
+
+.cs-why-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--cs-radius-md);
+  background: rgba(73, 104, 248, 0.1);
+  color: var(--cs-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cs-why-card:hover .cs-why-card-icon {
+  background: var(--cs-primary);
+  color: #ffffff;
+}
+
+.cs-why-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cs-heading);
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.cs-why-card p {
+  font-size: 14px;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 65ch;
+}
+
+/* =========================================================================
+   Global Reviews Slider Section
+   ========================================================================= */
+.cs-loc-reviews {
+  padding: 85px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-slider-header-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cs-slider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cs-slider-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--cs-radius-md);
+  border: 1px solid var(--cs-border);
+  background: #ffffff;
+  color: var(--cs-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s var(--cs-ease);
+  box-shadow: var(--cs-shadow-sm);
+}
+
+.cs-slider-btn:hover:not(:disabled) {
+  background: var(--cs-primary);
+  border-color: var(--cs-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(73, 104, 248, 0.25);
+}
+
+.cs-slider-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cs-reviews-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.cs-reviews-track {
+  display: flex;
+  gap: 24px;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.45s var(--cs-ease);
+  will-change: transform;
+}
+
+.cs-review-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-xl);
+  padding: 32px 28px;
+  box-shadow: var(--cs-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: transform 0.25s var(--cs-ease), box-shadow 0.25s var(--cs-ease), border-color 0.25s var(--cs-ease);
+}
+
+.cs-review-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--cs-primary);
+  box-shadow: var(--cs-shadow-md);
+}
+
+.cs-review-stars {
+  display: flex;
+  gap: 4px;
+  color: var(--cs-gold);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.cs-review-text {
+  font-size: 15px;
+  color: var(--cs-text);
+  line-height: 1.65;
+  margin: 0 0 24px;
+  flex-grow: 1;
+  font-style: normal;
+}
+
+.cs-review-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-top: 1px solid var(--cs-border-light);
+  padding-top: 18px;
+}
+
+.cs-author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--cs-radius-md);
+  background: var(--cs-gradient-primary);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cs-author-meta strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cs-heading);
+  line-height: 1.35;
+}
+
+.cs-author-meta span {
+  display: block;
+  font-size: 12px;
+  color: var(--cs-text-muted);
+}
+
+.cs-review-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--cs-primary);
+  background: rgba(73, 104, 248, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.cs-slider-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.cs-slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cs-border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s var(--cs-ease);
+}
+
+.cs-slider-dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--cs-primary);
+}
+
+/* =========================================================================
+   4. WHERE SECTION (Geo & Verified Entity)
+   ========================================================================= */
+.cs-loc-where {
+  padding: 85px 0;
+}
+
+.cs-where-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.cs-where-copy h2 {
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 800;
+  color: var(--cs-heading);
+  line-height: 1.35;
+  margin: 0 0 20px;
+}
+
+.cs-where-copy p {
+  font-size: 16px;
+  color: var(--cs-text);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 65ch;
+}
+
+.cs-entity-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cs-primary);
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  padding: 8px 18px;
+  border-radius: var(--cs-radius-full);
+  text-decoration: none;
+  box-shadow: var(--cs-shadow-sm);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cs-entity-tag:hover {
+  border-color: var(--cs-primary);
+  transform: translateY(-1px);
+}
+
+.cs-where-features {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-where-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  padding: 22px;
+  box-shadow: var(--cs-shadow-sm);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.cs-where-feature-card:hover {
+  border-color: var(--cs-primary);
+  transform: translateY(-2px);
+}
+
+.cs-where-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--cs-radius-md);
+  background: rgba(73, 104, 248, 0.1);
+  color: var(--cs-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cs-where-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cs-heading);
+  margin: 0 0 6px;
+  line-height: 1.35;
+}
+
+.cs-where-feature-card p {
+  font-size: 14px;
+  color: var(--cs-text-muted);
+  margin: 0;
+  line-height: 1.55;
+  max-width: 65ch;
+}
+
+/* =========================================================================
+   FAQs Section (High-Performance Accordion)
+   ========================================================================= */
+.cs-loc-faqs {
+  padding: 85px 0;
+}
+
+.cs-faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cs-faq-item {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+  padding: 32px 36px;
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: border-color 0.2s var(--cs-ease), box-shadow 0.2s var(--cs-ease);
+}
+
+.cs-faq-item:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
+}
+
+.cs-faq-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0 0 12px 0;
+  margin: 0;
+  display: block;
+  cursor: default;
+  pointer-events: none;
+  font-family: var(--cs-font);
+}
+
+.cs-faq-q {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--cs-heading);
+  margin: 0 0 12px 0;
+  padding: 0;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-family: var(--cs-font-display);
+}
+
+.cs-faq-icon {
+  display: none !important;
+}
+
+.cs-faq-body {
+  display: block !important;
+  grid-template-rows: 1fr;
+  padding: 0;
+  margin: 0;
+}
+
+.cs-faq-content {
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.7;
+}
+
+/* =========================================================================
+   Nearby Hubs & Strategic Locations
+   ========================================================================= */
+.cs-loc-nearby {
+  padding: 60px 0;
+}
+
+.cs-nearby-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cs-nearby-chip {
+  background: #ffffff;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-full);
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cs-heading);
+  text-decoration: none;
+  box-shadow: var(--cs-shadow-sm);
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-nearby-chip i {
+  color: var(--cs-primary);
+  font-size: 12px;
+}
+
+.cs-nearby-chip:hover {
+  background: var(--cs-primary);
+  border-color: var(--cs-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.cs-nearby-chip:hover i {
+  color: #ffffff;
+}
+
+/* Directory Filter Chips */
+.cs-dir-chip,
+button.cs-dir-chip {
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: var(--cs-text) !important;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--cs-ease);
+  font-family: var(--cs-font);
+}
+
+.cs-dir-chip:hover,
+button.cs-dir-chip:hover {
+  border-color: var(--cs-primary) !important;
+  color: var(--cs-primary) !important;
+}
+
+.cs-dir-chip.active,
+button.cs-dir-chip.active,
+a.cs-dir-chip.active {
+  background: var(--cs-primary) !important;
+  background-color: var(--cs-primary) !important;
+  border-color: var(--cs-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(73, 104, 248, 0.25) !important;
+}
+
+/* Country Accordion Body & Content Padding */
+.cs-country-card.open .cs-country-body {
+  display: block !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.cs-country-content {
+  padding: 28px 28px 36px !important;
+  overflow: visible !important;
+  background: #ffffff !important;
+}
+
+.cs-regions-grid {
+  margin-bottom: 28px !important;
+}
+
+.cs-country-cta-row {
+  padding-top: 24px !important;
+  padding-bottom: 8px !important;
+}
+
+/* =========================================================================
+   Bottom CTA Banner (AI Platform Gradient Banner)
+   ========================================================================= */
+.cs-loc-cta-banner {
+  padding: 80px 0 20px;
+}
+
+.cs-cta-box {
+  background: #0b0f17 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 64px 40px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+}
+
+.cs-cta-box .cs-eyebrow,
+.cs-cta-box .cs-badge {
+  color: #818cf8 !important;
+  background: transparent !important;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.cs-cta-box h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  color: #ffffff !important;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.cs-cta-box p {
+  font-size: 18px;
+  color: #ffffff !important;
+  max-width: 65ch;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.cs-cta-box .cs-btn,
+.cs-cta-box .cs-btn-primary,
+.cs-cta-box a.cs-btn,
+.cs-cta-box a.cs-btn-primary {
+  background: #ffffff !important;
+  color: #4968f8 !important;
+  border: 2px solid #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  padding: 15px 36px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cs-cta-box .cs-btn *,
+.cs-cta-box a.cs-btn *,
+.cs-cta-box .cs-btn-primary * {
+  color: #4968f8 !important;
+}
+
+.cs-cta-box .cs-btn:hover,
+.cs-cta-box .cs-btn:focus,
+.cs-cta-box .cs-btn:active,
+.cs-cta-box .cs-btn-primary:hover,
+.cs-cta-box .cs-btn-primary:focus,
+.cs-cta-box .cs-btn-primary:active,
+.cs-cta-box a.cs-btn:hover,
+.cs-cta-box a.cs-btn:focus,
+.cs-cta-box a.cs-btn:active,
+.cs-cta-box a.cs-btn-primary:hover,
+.cs-cta-box a.cs-btn-primary:focus,
+.cs-cta-box a.cs-btn-primary:active {
+  background: #ffffff !important;
+  color: #1e3a8a !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22) !important;
+}
+
+.cs-cta-box .cs-btn:hover *,
+.cs-cta-box .cs-btn:focus *,
+.cs-cta-box a.cs-btn:hover *,
+.cs-cta-box a.cs-btn:focus *,
+.cs-cta-box .cs-btn-primary:hover *,
+.cs-cta-box .cs-btn-primary:focus * {
+  color: #1e3a8a !important;
+}
+
+.cs-cta-box .cs-btn .cs-btn-arrow,
+.cs-cta-box .cs-btn i,
+.cs-cta-box a i {
+  color: #4968f8 !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+}
+
+.cs-cta-box .cs-btn:hover .cs-btn-arrow,
+.cs-cta-box .cs-btn:hover i,
+.cs-cta-box a:hover i {
+  color: #1e3a8a !important;
+  transform: translateX(4px) !important;
+}
+
+/* =========================================================================
+   Responsive Breakpoints
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .cs-review-card {
+    flex: 0 0 calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 1080px) {
+  .cs-why-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .cs-hero-grid,
+  .cs-who-grid,
+  .cs-where-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .cs-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-floating-stat {
+    left: 20px;
+    bottom: -15px;
+  }
+}
+
+@media (max-width: 720px) {
+  .cs-review-card {
+    flex: 0 0 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-stats-grid,
+  .cs-why-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .cs-hero-ctas {
+    flex-direction: column;
+  }
+  .cs-btn {
+    width: 100%;
+  }
+  .cs-service-card,
+  .cs-who-target-box {
+    padding: 24px;
+  }
+  .cs-cta-box {
+    padding: 40px 20px;
+  }
+}

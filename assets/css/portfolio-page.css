@@ -1,0 +1,855 @@
+/**
+ * Portfolio Showcase Stylesheet
+ * Brand: Chad Sia Media (Location Page Light Theme Architecture)
+ * Primary #4968f8, Accent #10b981, Light Background #f5f5f7
+ */
+
+:root {
+  --cs-port-bg: #f5f5f7;
+  --cs-port-card-bg: #ffffff;
+  --cs-port-card-hover: #ffffff;
+  --cs-port-border: #e5e7eb;
+  --cs-port-border-hover: rgba(73, 104, 248, 0.45);
+  --cs-port-primary: #4968f8;
+  --cs-port-primary-hover: #3553eb;
+  --cs-port-primary-glow: rgba(73, 104, 248, 0.25);
+  --cs-port-accent: #10b981;
+  --cs-port-text: #4b5563;
+  --cs-port-text-dark: #111827;
+  --cs-port-text-muted: #6b7280;
+  --cs-port-radius-sm: 6px;
+  --cs-port-radius-md: 8px;
+  --cs-port-radius-lg: 14px;
+  --cs-port-radius-pill: 8px;
+  --cs-port-transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Page Reset & Scope */
+.cs-portfolio-wrapper {
+  background-color: var(--cs-port-bg);
+  color: var(--cs-port-text);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+}
+
+.cs-portfolio-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================================
+   1. HERO SECTION
+   ========================================================================= */
+.cs-portfolio-hero {
+  position: relative;
+  padding: 80px 0 50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cs-hero-glow-blob {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(73, 104, 248, 0.12) 0%, rgba(245, 245, 247, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cs-portfolio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent !important;
+  border: none !important;
+  color: var(--cs-port-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.cs-portfolio-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(34px, 5.5vw, 54px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--cs-port-text-dark);
+  margin: 0 0 20px;
+}
+
+.cs-portfolio-title .cs-gradient-text {
+  color: var(--cs-port-primary);
+  font-weight: 800;
+}
+
+.cs-portfolio-subtitle {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--cs-port-text);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+/* Impact Metrics Bar */
+.cs-portfolio-stats {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background: #ffffff;
+  border: 1px solid var(--cs-port-border);
+  padding: 16px 36px;
+  border-radius: var(--cs-port-radius-lg);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cs-stat-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--cs-port-text-dark);
+  letter-spacing: -0.02em;
+}
+
+.cs-stat-number.cs-accent-metric {
+  color: var(--cs-port-accent);
+}
+
+.cs-stat-number.cs-primary-metric {
+  color: var(--cs-port-primary);
+}
+
+.cs-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cs-port-text-muted);
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.cs-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--cs-port-border);
+}
+
+/* =========================================================================
+   2. CATEGORY FILTER TABS
+   ========================================================================= */
+.cs-filter-section {
+  padding: 30px 0 45px;
+  text-align: center;
+}
+
+.cs-filter-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--cs-port-border);
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.cs-filter-btn {
+  background: transparent;
+  border: none;
+  color: var(--cs-port-text);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--cs-port-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+}
+
+.cs-filter-btn:hover {
+  color: var(--cs-port-primary);
+  background: #f8fafc;
+}
+
+.cs-filter-btn.active {
+  background: var(--cs-port-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--cs-port-primary-glow);
+}
+
+.cs-filter-btn .cs-filter-count {
+  font-size: 11px;
+  background: #f1f5f9;
+  color: #4b5563;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.cs-filter-btn.active .cs-filter-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* =========================================================================
+   3. PORTFOLIO GRID & CARDS
+   ========================================================================= */
+.cs-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.cs-portfolio-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-port-border);
+  border-radius: var(--cs-port-radius-lg);
+  overflow: hidden;
+  transition: var(--cs-port-transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cs-port-border-hover);
+  box-shadow: 0 16px 36px -4px rgba(73, 104, 248, 0.16);
+}
+
+.cs-portfolio-card.is-hidden {
+  display: none !important;
+}
+
+/* Card Media Header */
+.cs-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.cs-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.cs-portfolio-card:hover .cs-card-media img {
+  transform: scale(1.05);
+}
+
+.cs-card-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0) 40%, rgba(17, 24, 39, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* Media Floating Badges */
+.cs-media-badges {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cs-client-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  padding: 4px 10px;
+  border-radius: var(--cs-port-radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.cs-metric-chip {
+  font-size: 11px;
+  font-weight: 700;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 4px 10px;
+  border-radius: var(--cs-port-radius-sm);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Quick Expand Overlay Button on Thumbnail */
+.cs-media-expand-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: var(--cs-port-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+}
+
+.cs-portfolio-card:hover .cs-media-expand-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cs-media-expand-btn:hover {
+  background: var(--cs-port-primary);
+  border-color: var(--cs-port-primary);
+  color: #ffffff;
+}
+
+/* Card Body */
+.cs-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cs-card-client-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 6px;
+  text-transform: none !important;
+}
+
+.cs-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cs-port-text-dark);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.cs-card-desc {
+  font-size: 14px;
+  color: var(--cs-port-text);
+  line-height: 1.6;
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+
+/* Tech Tags */
+.cs-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.cs-tech-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4b5563;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 3px 9px;
+  border-radius: var(--cs-port-radius-sm);
+  transition: var(--cs-port-transition);
+}
+
+.cs-portfolio-card:hover .cs-tech-tag {
+  background: #eef2ff;
+  border-color: rgba(73, 104, 248, 0.25);
+  color: #1d4ed8;
+}
+
+/* Card Actions */
+.cs-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--cs-port-border);
+  gap: 12px;
+}
+
+.cs-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cs-port-primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--cs-port-transition);
+}
+
+.cs-card-link:hover {
+  color: var(--cs-port-primary-hover);
+  transform: translateX(3px);
+}
+
+.cs-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eef2ff;
+  color: #1d4ed8 !important;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(73, 104, 248, 0.25);
+  text-decoration: none;
+  transition: var(--cs-port-transition);
+}
+
+.cs-card-btn:hover {
+  background: var(--cs-port-primary);
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px var(--cs-port-primary-glow);
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   4. FULLSCREEN NATIVE LIGHTBOX MODAL
+   ========================================================================= */
+.cs-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cs-lightbox-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cs-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 15, 23, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+}
+
+.cs-lightbox-dialog {
+  position: relative;
+  z-index: 10;
+  width: 92vw;
+  max-width: 1100px;
+  height: 90vh;
+  max-height: 860px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-lightbox-modal.is-active .cs-lightbox-dialog {
+  transform: scale(1);
+}
+
+/* Lightbox Header */
+.cs-lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.cs-lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-lightbox-badge {
+  background: #eef2ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(73, 104, 248, 0.2);
+}
+
+.cs-lightbox-metric {
+  background: #ecfdf5;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: inline-flex;
+  align-items: center;
+}
+
+.cs-lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cs-lightbox-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cs-port-primary);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: var(--cs-port-transition);
+}
+
+.cs-lightbox-cta-btn:hover {
+  background: var(--cs-port-primary-hover);
+  transform: translateY(-1px);
+}
+
+.cs-lightbox-close-btn {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--cs-port-transition);
+}
+
+.cs-lightbox-close-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+  transform: rotate(90deg);
+}
+
+/* Lightbox Viewport & Image Scrolling */
+.cs-lightbox-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px;
+  background: #f8fafc;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cs-lightbox-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--cs-port-primary);
+  background: #f8fafc;
+  z-index: 5;
+}
+
+.cs-lightbox-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.25s ease;
+}
+
+/* Navigation Buttons */
+.cs-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: var(--cs-port-transition);
+}
+
+.cs-lightbox-nav.prev {
+  left: 16px;
+}
+
+.cs-lightbox-nav.next {
+  right: 16px;
+}
+
+.cs-lightbox-nav:hover {
+  background: var(--cs-port-primary);
+  color: #ffffff;
+  border-color: var(--cs-port-primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Lightbox Footer */
+.cs-lightbox-footer {
+  padding: 16px 24px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.cs-lightbox-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 4px;
+}
+
+.cs-lightbox-desc {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* =========================================================================
+   5. CLOSING CTA BANNER
+   ========================================================================= */
+.cs-portfolio-cta {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.cs-portfolio-cta-box {
+  background: #0b0f17;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--cs-port-radius-lg);
+  padding: 60px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+}
+
+.cs-portfolio-cta-box h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: #ffffff !important;
+  margin: 0 0 16px;
+}
+
+.cs-portfolio-cta-box p {
+  font-size: 17px;
+  color: #cbd5e1 !important;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.cs-cta-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.cs-cta-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #4968f8 !important;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 30px;
+  border-radius: var(--cs-port-radius-sm);
+  text-decoration: none;
+  transition: var(--cs-port-transition);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cs-cta-primary-btn:hover {
+  background: #f1f5f9;
+  color: #3553eb !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.cs-cta-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: var(--cs-port-radius-sm);
+  text-decoration: none;
+  transition: var(--cs-port-transition);
+}
+
+.cs-cta-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================= */
+@media (max-width: 1080px) {
+  .cs-portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-portfolio-hero {
+    padding: 60px 0 35px;
+  }
+  .cs-portfolio-stats {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .cs-stat-divider {
+    display: none;
+  }
+  .cs-portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .cs-portfolio-cta-box {
+    padding: 40px 20px;
+  }
+
+  /* Responsive Lightbox */
+  .cs-lightbox-dialog {
+    width: 96vw;
+    height: 94vh;
+    max-height: 94vh;
+    border-radius: 12px;
+  }
+  .cs-lightbox-header {
+    padding: 10px 14px;
+  }
+  .cs-lightbox-cta-btn span {
+    display: none;
+  }
+  .cs-lightbox-cta-btn {
+    padding: 8px 12px;
+  }
+  .cs-lightbox-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+  .cs-lightbox-nav.prev {
+    left: 8px;
+  }
+  .cs-lightbox-nav.next {
+    right: 8px;
+  }
+  .cs-lightbox-viewport {
+    padding: 12px;
+  }
+  .cs-lightbox-footer {
+    padding: 12px 16px;
+  }
+  .cs-lightbox-title {
+    font-size: 16px;
+  }
+  .cs-lightbox-desc {
+    font-size: 12px;
+  }
+}

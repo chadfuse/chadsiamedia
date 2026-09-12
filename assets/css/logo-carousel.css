@@ -1,0 +1,216 @@
+/**
+ * Global Client Logo Carousel Widget Styles
+ * Chad Sia Media - AI SaaS Modern Design System
+ */
+
+.cs-global-logo-carousel {
+  position: relative;
+  width: 100%;
+  padding: 44px 0 48px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   THEME VARIANTS
+   ========================================================================== */
+/* Dark Theme (Default AI SaaS Ribbon) */
+.cs-global-logo-carousel.cs-logo-theme-dark {
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-dark .cs-logo-kicker {
+  color: #94a3b8;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-dark .cs-logo-title {
+  color: #cbd5e1;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-dark .cs-logo-marquee-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.cs-global-logo-carousel.cs-logo-theme-dark .cs-logo-item img {
+  opacity: 0.72;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.cs-global-logo-carousel.cs-logo-theme-dark .cs-logo-item:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 4px 14px rgba(73, 104, 248, 0.25));
+}
+
+/* Light Theme */
+.cs-global-logo-carousel.cs-logo-theme-light {
+  background: #f8fafc;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  color: #111827;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-light .cs-logo-kicker {
+  color: #64748b;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-light .cs-logo-title {
+  color: #334155;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-light .cs-logo-marquee-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.cs-global-logo-carousel.cs-logo-theme-light .cs-logo-item img {
+  opacity: 0.65;
+}
+
+.cs-global-logo-carousel.cs-logo-theme-light .cs-logo-item:hover img {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.cs-logo-carousel-header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 0 20px;
+}
+
+.cs-logo-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none !important;
+  margin-bottom: 6px;
+}
+
+.cs-logo-title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   MARQUEE VIEWPORT & TRACK
+   ========================================================================== */
+.cs-logo-marquee-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.cs-logo-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  width: max-content;
+  will-change: transform;
+  animation: csGlobalMarqueeScroll var(--cs-marquee-speed, 38s) linear infinite;
+}
+
+.cs-global-logo-carousel:hover .cs-logo-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   LOGO ITEMS
+   ========================================================================== */
+.cs-logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 4px 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.cs-logo-item:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.cs-logo-item img {
+  display: block;
+  max-height: 40px;
+  width: auto;
+  max-width: 155px;
+  object-fit: contain;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Aspect adjustments */
+.cs-logo-item.cs-aspect-square img {
+  max-height: 44px;
+  max-width: 75px;
+}
+
+.cs-logo-item.cs-aspect-wide img {
+  max-height: 36px;
+  max-width: 165px;
+}
+
+.cs-logo-item.cs-aspect-medium img {
+  max-height: 38px;
+  max-width: 130px;
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES
+   ========================================================================== */
+@keyframes csGlobalMarqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE SCALING
+   ========================================================================== */
+@media (max-width: 768px) {
+  .cs-global-logo-carousel {
+    padding: 32px 0 36px;
+  }
+  .cs-logo-carousel-header {
+    margin-bottom: 20px;
+  }
+  .cs-logo-kicker {
+    font-size: 12px;
+  }
+  .cs-logo-title {
+    font-size: 13px;
+  }
+  .cs-logo-marquee-track {
+    gap: 32px;
+    animation-duration: 28s;
+  }
+  .cs-logo-item {
+    height: 40px;
+    padding: 2px 8px;
+  }
+  .cs-logo-item img {
+    max-height: 28px;
+    max-width: 120px;
+  }
+  .cs-logo-item.cs-aspect-square img {
+    max-height: 32px;
+    max-width: 55px;
+  }
+}

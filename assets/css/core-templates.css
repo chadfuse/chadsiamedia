@@ -1,0 +1,567 @@
+/**
+ * Core WordPress Theme Templates Stylesheet
+ * Covers: Single Post, Single Page, 404 Error, Archive, Index
+ * Brand: Chad Sia Media (Location Page Light Theme Architecture)
+ * Primary #4968f8, Accent #10b981, Light Background #f5f5f7
+ */
+
+:root {
+  --cs-core-bg: #f5f5f7;
+  --cs-core-card-bg: #ffffff;
+  --cs-core-card-hover: #ffffff;
+  --cs-core-border: #e5e7eb;
+  --cs-core-border-hover: rgba(73, 104, 248, 0.45);
+  --cs-core-primary: #4968f8;
+  --cs-core-primary-hover: #3553eb;
+  --cs-core-primary-glow: rgba(73, 104, 248, 0.25);
+  --cs-core-accent: #10b981;
+  --cs-core-text: #4b5563;
+  --cs-core-text-dark: #111827;
+  --cs-core-text-muted: #6b7280;
+  --cs-core-radius-sm: 6px;
+  --cs-core-radius-md: 8px;
+  --cs-core-radius-lg: 14px;
+  --cs-core-transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Page Reset & Wrapper */
+.cs-core-wrapper {
+  background-color: var(--cs-core-bg);
+  color: var(--cs-core-text);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 90px;
+  overflow-x: hidden;
+}
+
+.cs-core-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cs-prose-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* =========================================================================
+   1. SINGLE POST & ARCHIVE HERO HEADERS
+   ========================================================================= */
+.cs-post-header,
+.cs-archive-hero,
+.cs-404-hero {
+  position: relative;
+  padding: 70px 0 40px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cs-header-blob {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(73, 104, 248, 0.12) 0%, rgba(245, 245, 247, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-post-header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cs-post-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent !important;
+  border: none !important;
+  color: var(--cs-core-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.cs-post-eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cs-post-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: var(--cs-core-text-dark);
+  margin: 0 0 20px;
+}
+
+/* Meta Rows */
+.cs-post-meta,
+.cs-post-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--cs-core-text-muted);
+}
+
+.cs-meta-item,
+.cs-post-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-meta-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--cs-core-border);
+}
+
+/* Featured Media */
+.cs-post-featured-media {
+  margin: 40px auto;
+  border-radius: var(--cs-core-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--cs-core-border);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+}
+
+.cs-post-featured-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================================
+   2. PROSE CONTENT BODY (Single Post & Page)
+   ========================================================================= */
+.cs-prose-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #374151;
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border);
+  border-radius: var(--cs-core-radius-lg);
+  padding: 48px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cs-prose-body h2,
+.cs-prose-body h3,
+.cs-prose-body h4 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--cs-core-text-dark);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.cs-prose-body h2 {
+  font-size: 28px;
+  border-bottom: 1px solid var(--cs-core-border);
+  padding-bottom: 12px;
+}
+
+.cs-prose-body h3 {
+  font-size: 22px;
+}
+
+.cs-prose-body p {
+  margin-bottom: 24px;
+}
+
+.cs-prose-body a {
+  color: var(--cs-core-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cs-prose-body a:hover {
+  color: var(--cs-core-primary-hover);
+}
+
+.cs-prose-body blockquote {
+  border-left: 4px solid var(--cs-core-primary);
+  background: #f8fafc;
+  padding: 18px 24px;
+  margin: 32px 0;
+  border-radius: 0 var(--cs-core-radius-sm) var(--cs-core-radius-sm) 0;
+  color: #1f2937;
+  font-style: italic;
+}
+
+.cs-prose-body code {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #111827;
+  padding: 2px 8px;
+  border-radius: var(--cs-core-radius-sm);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.cs-prose-body pre {
+  background: #111827;
+  color: #f8fafc;
+  padding: 24px;
+  border-radius: var(--cs-core-radius-md);
+  overflow-x: auto;
+  margin: 32px 0;
+}
+
+.cs-prose-body pre code {
+  background: transparent;
+  border: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Post Navigation Cards */
+.cs-post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.cs-nav-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.cs-nav-card:hover {
+  border-color: var(--cs-core-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(73, 104, 248, 0.15);
+}
+
+.cs-nav-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cs-core-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-nav-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--cs-core-text-dark);
+  line-height: 1.35;
+}
+
+/* =========================================================================
+   3. ARCHIVE & RELATED ARTICLES GRID
+   ========================================================================= */
+.cs-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.cs-article-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.cs-article-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(73, 104, 248, 0.4);
+  box-shadow: 0 16px 36px -4px rgba(73, 104, 248, 0.15);
+}
+
+.cs-article-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111827;
+}
+
+.cs-article-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cs-article-card:hover .cs-article-media img {
+  transform: scale(1.05);
+}
+
+.cs-article-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cs-article-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cs-article-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--cs-core-text-muted);
+  margin-bottom: 12px;
+}
+
+.cs-article-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--cs-core-text-dark);
+  margin: 0 0 12px;
+}
+
+.cs-article-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cs-article-title a:hover {
+  color: var(--cs-core-primary);
+}
+
+.cs-article-excerpt {
+  font-size: 0.92rem;
+  color: var(--cs-core-text);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.cs-article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cs-core-primary);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.cs-article-link:hover {
+  transform: translateX(4px);
+}
+
+/* Pagination */
+.cs-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 50px 0 20px;
+}
+
+.cs-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border);
+  color: var(--cs-core-text-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cs-pagination .page-numbers:hover {
+  border-color: var(--cs-core-primary);
+  color: var(--cs-core-primary);
+}
+
+.cs-pagination .page-numbers.current {
+  background: var(--cs-core-primary);
+  border-color: var(--cs-core-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px var(--cs-core-primary-glow);
+}
+
+/* =========================================================================
+   4. 404 ERROR TEMPLATE
+   ========================================================================= */
+.cs-404-glitch,
+.cs-404-glitch-code {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(80px, 14vw, 150px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--cs-core-primary);
+  letter-spacing: -0.05em;
+  margin-bottom: 16px;
+}
+
+.cs-404-search-box {
+  max-width: 540px;
+  margin: 0 auto 50px;
+}
+
+.cs-search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.cs-search-input {
+  flex-grow: 1;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--cs-core-border);
+  background: #ffffff;
+  color: #111827;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.cs-search-input:focus {
+  border-color: var(--cs-core-primary);
+  box-shadow: 0 0 0 3px rgba(73, 104, 248, 0.15);
+}
+
+.cs-search-btn {
+  padding: 14px 24px;
+  background: var(--cs-core-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cs-search-btn:hover {
+  background: var(--cs-core-primary-hover);
+}
+
+.cs-quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.cs-quick-link-card {
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.cs-quick-link-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cs-core-primary);
+  box-shadow: 0 12px 28px -4px rgba(73, 104, 248, 0.15);
+}
+
+.cs-quick-link-card i {
+  font-size: 1.8rem;
+  color: var(--cs-core-primary);
+  margin-bottom: 14px;
+}
+
+.cs-quick-link-card strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  color: var(--cs-core-text-dark);
+  margin-bottom: 4px;
+}
+
+.cs-quick-link-card span {
+  font-size: 0.82rem;
+  color: var(--cs-core-text-muted);
+}
+
+/* =========================================================================
+   5. RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .cs-archive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-prose-body {
+    padding: 28px 20px;
+  }
+  .cs-archive-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-quick-links-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-post-nav {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+# Environment & Credentials
+.env
+.env.*
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Temporary Scratch Scripts & Output Dumps
+scratch/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules & build caches
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
