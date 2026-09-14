@@ -118,17 +118,6 @@ $recent_posts = get_posts([
     
     <!-- Background Hero Media Layer -->
     <div class="cs-home-video-wrap no-lazy" data-no-lazy="1">
-      <picture class="cs-hero-bg-picture">
-        <source media="(max-width: 768px)" srcset="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/chadsiabg-mobile.webp'); ?>" type="image/webp">
-        <img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/chadsiabg.webp'); ?>" 
-             alt="" 
-             fetchpriority="high" 
-             decoding="async" 
-             class="cs-hero-bg-img no-lazy" 
-             data-no-lazy="1" 
-             width="1600" 
-             height="871">
-      </picture>
       <video class="cs-home-video-bg no-lazy" autoplay muted loop playsinline preload="none" data-no-lazy="1" data-src="<?php echo esc_url($video_url); ?>">
       </video>
       <div class="cs-home-video-overlay"></div>
@@ -466,13 +455,13 @@ $recent_posts = get_posts([
 
 <script>
 /**
- * Chad Sia Media - Performance & Hero Mask Reveal Orchestration
+ * Chad Sia Media - Performance & Hero Video Orchestration
  */
 (function() {
   function initHeroMedia() {
-    // 1. Deferred Background Video Loader (Only load on desktop screens > 768px to keep mobile sub-second)
+    // 1. Deferred Background Video Loader (Asynchronously loads on both Desktop & Mobile without blocking critical path)
     var videoBg = document.querySelector('.cs-home-video-bg');
-    if (videoBg && videoBg.dataset.src && !videoBg.querySelector('source') && window.innerWidth > 768) {
+    if (videoBg && videoBg.dataset.src && !videoBg.querySelector('source')) {
       var source = document.createElement('source');
       source.src = videoBg.dataset.src;
       source.type = 'video/mp4';
@@ -492,11 +481,16 @@ $recent_posts = get_posts([
     document.body.classList.add('cs-page-loaded');
   }
 
-  if (document.readyState === 'complete') {
-    setTimeout(initHeroMedia, 300);
+  // Defer initialization slightly so initial FCP and critical rendering path execute with 0 delay
+  if (window.requestIdleCallback) {
+    requestIdleCallback(function() {
+      setTimeout(initHeroMedia, 150);
+    }, { timeout: 1200 });
+  } else if (document.readyState === 'complete') {
+    setTimeout(initHeroMedia, 200);
   } else {
     window.addEventListener('load', function() {
-      setTimeout(initHeroMedia, 300);
+      setTimeout(initHeroMedia, 200);
     });
   }
 })();

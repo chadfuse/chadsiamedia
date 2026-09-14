@@ -116,25 +116,6 @@
   background: #f5f5f7;
 }
 
-.cs-hero-bg-picture,
-.cs-hero-bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-  pointer-events: none;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .cs-home-video-bg {
-    display: none !important;
-  }
-}
 
 .cs-home-video-bg {
   width: 100%;

@@ -14,6 +14,15 @@ if (!defined('ABSPATH')) {
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    // Neutralize host-level telemetry chains to maximize PageSpeed critical rendering path
+    window._trfq = [];
+    window._trfd = [];
+    try {
+        Object.defineProperty(window, '_trfd', { value: { push: function() {} }, writable: false, configurable: true });
+        Object.defineProperty(window, '_trfq', { value: { push: function() {} }, writable: false, configurable: true });
+    } catch(e) {}
+    </script>
     <!-- Google Fonts (Asynchronous Non-Blocking Load with Swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +33,6 @@ if (!defined('ABSPATH')) {
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <?php if (is_front_page() || is_home()): ?>
-    <link rel="preload" as="image" href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/chadsiabg-mobile.webp'); ?>" media="(max-width: 768px)" type="image/webp" fetchpriority="high">
-    <link rel="preload" as="image" href="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/chadsiabg.webp'); ?>" media="(min-width: 769px)" type="image/webp" fetchpriority="high">
     <style id="cs-critical-css">
     <?php 
     $crit_path = get_stylesheet_directory() . '/assets/css/critical-home.css';

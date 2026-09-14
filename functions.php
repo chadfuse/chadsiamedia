@@ -493,3 +493,34 @@ add_action('template_redirect', function () {
     }
 });
 
+/**
+ * Critical Request Chain & PageSpeed Performance Optimizations
+ */
+// 1. Asynchronous non-blocking load for master theme CSS on homepage where critical CSS is inlined
+add_filter('style_loader_tag', function ($html, $handle, $href, $media) {
+    if ($handle === 'cs-master-theme-style' && (is_front_page() || is_home())) {
+        return '<link rel="preload" as="style" href="' . esc_url($href) . '">' .
+               '<link rel="stylesheet" id="' . esc_attr($handle) . '-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'">' .
+               '<noscript>' . $html . '</noscript>';
+    }
+    return $html;
+}, 10, 4);
+
+// 2. Output Buffer Filter: Strip Render-Blocking GoDaddy Telemetry & Defer Cloudflare Beacons
+add_action('template_redirect', function () {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron() || (defined('REST_REQUEST') && REST_REQUEST)) {
+        return;
+    }
+    ob_start(function ($buffer) {
+        if (empty($buffer) || !is_string($buffer)) {
+            return $buffer;
+        }
+        // Remove GoDaddy telemetry scripts (scc-c2.min.js, tccl.min.js, csp.secureserver.net)
+        $buffer = preg_replace('/<script[^>]*src=[\'"][^\'"]*(?:img1\.wsimg\.com|secureserver\.net)[^\'"]*[\'"][^>]*><\/script>/i', '', $buffer);
+        $buffer = preg_replace('/<link[^>]*href=[\'"][^\'"]*img1\.wsimg\.com[^\'"]*[\'"][^>]*>/i', '', $buffer);
+        // Defer Cloudflare Insights beacon
+        $buffer = preg_replace('/(<script[^>]*src=[\'"][^\'"]*static\.cloudflareinsights\.com[^\'"]*[\'"][^>]*)>/i', '$1 defer>', $buffer);
+        return $buffer;
+    });
+}, 1);
+
