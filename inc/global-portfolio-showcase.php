@@ -38,7 +38,20 @@ function cs_get_default_portfolio_items() {
             'description'  => 'Designed the end-to-end UI/UX and engineered the responsive front-end for SolarPlus—featuring custom WordPress architecture, solar array design tools, CRM workflows, and automated quotation systems.',
             'tags'         => 'Custom WordPress, Solar Design Tool, CRM & Quoting Engine, UI/UX Engineering, Frontend Architecture',
             'project_url'  => '/contact/?project=solarplus',
-            'live_url'     => 'https://www.solarplus.co/'
+            'live_url'     => 'https://www.solarplus.co/',
+            'live_text'    => 'View Live Platform'
+        ],
+        [
+            'id'           => 'frasso',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/frasso-catalog-showcase-1024.webp',
+            'title'        => 'Frasso Architecture & Web Catalog Design',
+            'client_type'  => 'Web Catalog & Architecture Studio',
+            'metric_badge' => 'Editorial UI · Sub-Second Speed',
+            'description'  => 'Architected a bespoke web catalog and portfolio showcase template featuring editorial typography, interactive collection filtering, responsive project showcases, and ultra-fast visual rendering.',
+            'tags'         => 'Web Catalog Template, Architecture Studio, Interactive Showcase, Figma to Code, Zero Layout Shift',
+            'project_url'  => '/contact/?project=frasso',
+            'live_url'     => 'https://chadsia.com/frasso/',
+            'live_text'    => 'View Live Demo'
         ],
         [
             'id'           => 'defensible-legal',
@@ -49,7 +62,20 @@ function cs_get_default_portfolio_items() {
             'description'  => 'Architected a bespoke corporate web platform and solicitor directory with sub-second critical path rendering, strict WCAG 2.1 AA accessibility, and zero layout shift.',
             'tags'         => 'Solicitor Directory, Semantic HTML5, TypeScript, 99 PageSpeed',
             'project_url'  => '/contact/?project=defensible-legal',
-            'live_url'     => 'https://chadsia.com/portfolio/'
+            'live_url'     => 'https://defensiblelegal.co.uk/',
+            'live_text'    => 'View Live Platform'
+        ],
+        [
+            'id'           => 'kirk-allen',
+            'image_url'    => 'https://chadsia.com/wp-content/uploads/2025/07/Kirk-Allen-Landscape-Supply-1024x546.png',
+            'title'        => 'Kirk Allen Landscape Supply',
+            'client_type'  => 'WordPress & WooCommerce Build',
+            'metric_badge' => 'Custom Location Distance Charging',
+            'description'  => 'Custom WordPress WooCommerce build engineered with dynamic location distance freight charging, cubic yard material calculators, and streamlined bulk checkout.',
+            'tags'         => 'WordPress & WooCommerce, Distance Charging API, Custom Freight Logistics, Material Calculator',
+            'project_url'  => '/contact/?project=kirk-allen',
+            'live_url'     => 'https://www.kirkallenlandscapesupply.com/',
+            'live_text'    => 'View Live Platform'
         ],
         [
             'id'           => 'atlas-app',
@@ -71,7 +97,8 @@ function cs_get_default_portfolio_items() {
             'description'  => 'Designed and built an ultra-premium booking portal for luxury vacation rental villas with fluid typography, immersive visual storytelling, and direct reservation inquiries.',
             'tags'         => 'Vacation Rental Villa, Custom WordPress, Fluid Typography, Sub-Second',
             'project_url'  => '/contact/?project=casa-halo',
-            'live_url'     => 'https://chadsia.com/portfolio/'
+            'live_url'     => 'https://casahalotulum.com/',
+            'live_text'    => 'View Live Platform'
         ],
         [
             'id'           => 'blusonil',
@@ -93,7 +120,8 @@ function cs_get_default_portfolio_items() {
             'description'  => 'Custom WordPress media and learning platform with gated video masterclasses, music courses, lessons, and fast streaming audio player integration.',
             'tags'         => 'Music Courses and Lessons, Custom WordPress, Fast Media, A11y AA',
             'project_url'  => '/contact/?project=gypsyjazz',
-            'live_url'     => 'https://chadsia.com/portfolio/'
+            'live_url'     => 'https://www.gypsyjazztransfusionclub.com/',
+            'live_text'    => 'View Live Platform'
         ],
         [
             'id'           => 'broco-energy',
@@ -104,18 +132,8 @@ function cs_get_default_portfolio_items() {
             'description'  => 'Built a high-traffic industrial fuel, commercial HVAC, and energy marketing website with dynamic delivery dispatch forms and commercial quote calculators.',
             'tags'         => 'Fuel & HVAC Marketing, Custom PHP, CRM Integration, Sub-Second TTFB',
             'project_url'  => '/contact/?project=broco-energy',
-            'live_url'     => 'https://chadsia.com/portfolio/'
-        ],
-        [
-            'id'           => 'kirk-allen',
-            'image_url'    => 'https://chadsia.com/wp-content/uploads/2025/07/Kirk-Allen-Landscape-Supply-1024x546.png',
-            'title'        => 'Kirk Allen Landscape Supply',
-            'client_type'  => 'WooCommerce',
-            'metric_badge' => '+48% Online Orders',
-            'description'  => 'Scalable bulk landscape supply WooCommerce store with custom cubic yard material calculators, automated local delivery zones, and streamlined checkout.',
-            'tags'         => 'WooCommerce, Custom Calculator, Delivery Radius API, Fast Checkout',
-            'project_url'  => '/contact/?project=kirk-allen',
-            'live_url'     => 'https://chadsia.com/portfolio/'
+            'live_url'     => 'https://www.brocoenergy.com/',
+            'live_text'    => 'View Live Platform'
         ],
         [
             'id'           => 'vip-fitness',
@@ -218,6 +236,7 @@ function cs_render_portfolio_showcase_html($config) {
               }
               $p_url = $port['project_url'] ?? '/contact/';
               $p_live = !empty($port['live_url']) ? $port['live_url'] : '';
+              $p_live_text = $port['live_text'] ?? '';
               
               // Resolve image URL
               $p_img = '';
@@ -268,9 +287,11 @@ function cs_render_portfolio_showcase_html($config) {
                   <a href="<?php echo esc_url($p_url); ?>" class="cs-portfolio-btn">
                     Discuss Similar Architecture <i class="fa-solid fa-arrow-right"></i>
                   </a>
-                  <?php if (!empty($p_live)): ?>
+                  <?php if (!empty($p_live)): 
+                    $live_btn_label = !empty($p_live_text) ? $p_live_text : ((strpos($p_live, 'chadsia.com/portfolio') !== false) ? 'Explore Portfolio' : 'View Live Demo');
+                  ?>
                     <a href="<?php echo esc_url($p_live); ?>" class="cs-portfolio-live-link" target="_blank" rel="noopener noreferrer">
-                      <span>Explore Portfolio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      <span><?php echo esc_html($live_btn_label); ?></span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                   <?php endif; ?>
                 </div>

@@ -67,6 +67,7 @@ $extra_class   = $args['class'] ?? '';
           }
           $p_url = $port['project_url'] ?? '/contact/';
           $p_live = !empty($port['live_url']) ? $port['live_url'] : '';
+          $p_live_text = $port['live_text'] ?? '';
           
           // Resolve image URL
           $p_img = '';
@@ -117,9 +118,11 @@ $extra_class   = $args['class'] ?? '';
               <a href="<?php echo esc_url($p_url); ?>" class="cs-portfolio-btn">
                 Discuss Similar Architecture <i class="fa-solid fa-arrow-right"></i>
               </a>
-              <?php if (!empty($p_live)): ?>
+              <?php if (!empty($p_live)): 
+                $live_btn_label = !empty($p_live_text) ? $p_live_text : ((strpos($p_live, 'chadsia.com/portfolio') !== false) ? 'Explore Portfolio' : 'View Live Demo');
+              ?>
                 <a href="<?php echo esc_url($p_live); ?>" class="cs-portfolio-live-link" target="_blank" rel="noopener noreferrer">
-                  <span>Explore Portfolio</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  <span><?php echo esc_html($live_btn_label); ?></span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               <?php endif; ?>
             </div>
