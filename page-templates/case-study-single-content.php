@@ -60,11 +60,11 @@ if (!defined('ABSPATH')) {
 
     <!-- Case Study Hero Visual -->
     <div class="cs-hero-media-wrap">
-        <div class="cs-cs-container">
-            <div class="cs-media-frame">
+        <div class="cs-cs-container cs-media-container">
+            <div class="cs-media-frame cs-hero-frame">
                 <img src="https://chadsia.com/wp-content/uploads/2026/09/Chad-Sia-Media.jpg" 
                      alt="Chad Sia Media High Performance Interface" 
-                     width="1200" height="650" loading="eager" />
+                     width="900" height="480" loading="eager" />
                 <figcaption class="cs-media-caption">
                     Figure 1: The revamped light-surface design system engineered with crisp borders (#e5e7eb), Outfit headings, and sub-second load times.
                 </figcaption>
