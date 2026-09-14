@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
     <!-- Hero Section -->
     <header class="cs-hub-hero">
         <div class="cs-cs-container">
-            <div class="cs-badge-pill">Engineering Case Studies</div>
+            <div class="cs-eyebrow">Engineering Case Studies</div>
             <h1 class="cs-hub-title">Architecture Transformations & Technical Case Studies</h1>
             <p class="cs-hub-lead">
                 Explore in-depth technical breakdowns of custom WordPress architectures, sub-second performance engineering, headless migrations, and enterprise integrations delivered with precision.
@@ -99,7 +99,7 @@ if (!defined('ABSPATH')) {
     <section class="cs-grid-section">
         <div class="cs-cs-container">
             <div class="cs-section-header">
-                <div class="cs-badge-pill">Client Transformations</div>
+                <div class="cs-eyebrow">Client Transformations</div>
                 <h2 class="cs-section-title">Production Engineering Across Industries</h2>
                 <p class="cs-section-subtitle">Real-world deployments featuring custom freight APIs, interactive solar tools, bespoke legal directories, and ultra-fast web catalogs.</p>
             </div>
@@ -262,7 +262,7 @@ if (!defined('ABSPATH')) {
     <section class="cs-pillars-section">
         <div class="cs-cs-container">
             <div class="cs-section-header">
-                <div class="cs-badge-pill">Core Engineering Standard</div>
+                <div class="cs-eyebrow">Core Engineering Standard</div>
                 <h2 class="cs-section-title">Built on Deterministic Engineering Principles</h2>
                 <p class="cs-section-subtitle">Every project is engineered from first principles without bloated dependencies.</p>
             </div>
@@ -311,7 +311,7 @@ if (!defined('ABSPATH')) {
     <section class="cs-cta-section">
         <div class="cs-cs-container">
             <div class="cs-cta-card">
-                <div class="cs-badge-pill">Ready to Transform Your Platform?</div>
+                <div class="cs-eyebrow">Ready to Transform Your Platform?</div>
                 <h2 class="cs-cta-title">Let's Engineer Your High-Performance Web Solution</h2>
                 <p class="cs-cta-desc">
                     Partner directly with a senior engineer with 17+ years of expertise in custom WordPress architecture, speed optimization, and bespoke web applications.

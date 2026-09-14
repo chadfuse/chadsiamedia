@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) {
     <!-- Case Study Header -->
     <header class="cs-single-hero">
         <div class="cs-cs-container">
-            <div class="cs-badge-pill">Technical Case Study</div>
+            <div class="cs-eyebrow">Technical Case Study</div>
             <h1 class="cs-single-title">Re-Engineering ChadSia.com: From 48 to 99+ Mobile PageSpeed with Zero-Builder Native PHP Architecture</h1>
             <p class="cs-single-subtitle">
                 How we dismantled 2,400+ bloated DOM nodes, eliminated multi-megabyte render-blocking assets, engineered sub-second Core Web Vitals on mobile, and built a custom Brevo transactional lead engine.
@@ -343,7 +343,7 @@ if (!defined('ABSPATH')) {
                          alt="Chad Sia - Senior Front-End & WordPress Engineer" 
                          class="cs-author-avatar" width="120" height="120" loading="lazy" />
                     <div class="cs-author-bio">
-                        <div class="cs-badge-pill">Project Lead & Architect</div>
+                        <div class="cs-eyebrow">Project Lead & Architect</div>
                         <h3 class="cs-author-name">Chad Sia</h3>
                         <p class="cs-author-role">Senior Front-End Engineer & WordPress Architect (17+ Years Experience)</p>
                         <p class="cs-author-desc">
@@ -383,7 +383,7 @@ if (!defined('ABSPATH')) {
     <section class="cs-cta-section">
         <div class="cs-cs-container">
             <div class="cs-cta-card">
-                <div class="cs-badge-pill">Ready for a Technical Upgrade?</div>
+                <div class="cs-eyebrow">Ready for a Technical Upgrade?</div>
                 <h2 class="cs-cta-title">Upgrade Your Web Architecture for Sub-Second Performance</h2>
                 <p class="cs-cta-desc">
                     Get an in-depth audit of your current WordPress or web platform, eliminate builder bottlenecks, and engineer sub-second Core Web Vitals.

@@ -13,8 +13,9 @@
   - Direct 1-on-1 Senior Engineer Collaboration (17+ years experience)
 
 ### 3. Design System & Theme Styling
+- **Pure Clean Text Eyebrows (No Badge Pills)**: Never use pill containers, badge background fills, or border pills on section eyebrows (`.cs-badge-pill`, `.cs-eyebrow`). All eyebrows must be pure clean text (`background: transparent; border: none; padding: 0;`).
 - **Location Page Light Background Architecture**: `#f5f5f7` background, `#ffffff` card surface, `#e5e7eb` crisp borders, `#111827` dark headings (`Outfit`), `#1f2937` / `#374151` body text (`DM Sans`).
-- **Brand Colors**: `#4968f8` electric blue, `#10b981` emerald accent, `#eef2ff` badge pills with `#1d4ed8` text.
+- **Brand Colors**: `#4968f8` electric blue, `#10b981` emerald accent, `#1d4ed8` / `#4968f8` text for eyebrows.
 - **Zero Builder Bloat**: Clean PHP templates and lightweight modular CSS. No heavy Elementor/page builder dependencies.
 
 ### 4. Dual Server Sync & Cache Flush

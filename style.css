@@ -10440,7 +10440,6 @@ body.cs-page-loaded .cs-mask-wipe-badge {
   }
 }
 
-
 /* =========================================================================
    SECTION: CASE STUDIES & ARCHITECTURE HUBS
    ========================================================================= */
@@ -10514,20 +10513,22 @@ body.cs-page-loaded .cs-mask-wipe-badge {
   text-transform: none !important;
 }
 
-/* Badge Pills */
-.cs-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--cs-pill-bg);
-  color: var(--cs-pill-text);
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 9999px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(73, 104, 248, 0.18);
+/* Section Eyebrows (Pure Clean Text - No Pills / No Badges / No Borders) */
+.cs-badge-pill,
+.cs-eyebrow,
+.cs-cs-eyebrow {
+  display: inline-block;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #1d4ed8 !important;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1.4;
+  margin-bottom: 12px;
   text-transform: none !important;
 }
 
@@ -10932,10 +10933,14 @@ body.cs-page-loaded .cs-mask-wipe-badge {
   box-shadow: var(--cs-shadow-lg);
 }
 
-.cs-cta-card .cs-badge-pill {
-  background: rgba(255, 255, 255, 0.12);
-  color: #93c5fd;
-  border-color: rgba(255, 255, 255, 0.2);
+.cs-cta-card .cs-badge-pill,
+.cs-cta-card .cs-eyebrow {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #93c5fd !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 .cs-cta-title {
@@ -11427,3 +11432,4 @@ body.cs-page-loaded .cs-mask-wipe-badge {
     text-align: center;
   }
 }
+
