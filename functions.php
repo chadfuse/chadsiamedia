@@ -43,7 +43,24 @@ function chadsia_enqueue_theme_scripts() {
         true
     );
 
-    // 3. Location Page Scripts (only when location template is used)
+    // 3. Case Study Styles (when on case study templates or pages)
+    if (is_page_template('page-templates/template-case-study-hub.php') ||
+        is_page_template('page-templates/template-case-study-single.php') ||
+        is_page('case-study') ||
+        is_page('chadsia-media-architecture-revamp') ||
+        (is_page() && strpos(get_post_field('post_name', get_the_ID()), 'case-study') !== false)) {
+        $cs_css = $dir . '/assets/css/case-study-page.css';
+        if (file_exists($cs_css)) {
+            wp_enqueue_style(
+                'cs-case-study-page-style',
+                $uri . '/assets/css/case-study-page.css',
+                ['cs-master-theme-style'],
+                filemtime($cs_css)
+            );
+        }
+    }
+
+    // 4. Location Page Scripts (only when location template is used)
     if (is_page_template('page-templates/template-location.php') || is_page_template('template-location.php')) {
         $loc_js = $dir . '/assets/js/location-page.js';
         if (file_exists($loc_js)) {

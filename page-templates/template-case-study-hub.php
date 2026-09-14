@@ -8,14 +8,6 @@
 
 get_header();
 
-// Enqueue Case Study Stylesheet
-wp_enqueue_style(
-    'cs-case-study-css',
-    get_stylesheet_directory_uri() . '/assets/css/case-study-page.css',
-    ['chadsia-style'],
-    file_exists(get_stylesheet_directory() . '/assets/css/case-study-page.css') ? filemtime(get_stylesheet_directory() . '/assets/css/case-study-page.css') : '1.0.0'
-);
-
 // Include Hub Content Template
 $content_template = locate_template('page-templates/case-study-hub-content.php');
 if ($content_template) {
