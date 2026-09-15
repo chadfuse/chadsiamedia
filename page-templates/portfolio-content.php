@@ -18,6 +18,22 @@ $portfolio_items = [
     // 1. WEB PLATFORMS
     // ==========================================
     [
+        'id'          => 'cowper-residences',
+        'title'       => 'Cowper Residences Footscray',
+        'client_type' => 'WordPress Customisation & Real Estate Development',
+        'category'    => 'web-dev',
+        'categories'  => ['web-dev', 'ui-ux'],
+        'category_name' => 'WordPress Customisation',
+        'image_url'   => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/cowper-residences-showcase.webp',
+        'full_image_url' => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/cowper-residences-showcase.jpg',
+        'description' => 'Engineered bespoke WordPress theme customisations for Cowper Residences—a premier multi-residential real estate development in Footscray featuring luxury apartments, SOHOs, and townhouses with interactive floorplans and inquiry registration.',
+        'metric'      => 'Custom Real Estate Theme',
+        'tags'        => ['WordPress Customisation', 'Real Estate Portal', 'Interactive Floorplans', 'Custom Post Types', 'Lead Capture Engine'],
+        'live_url'    => 'https://cowperresidences.com.au/',
+        'cta_text'    => 'View Live Platform',
+        'is_lightbox' => false
+    ],
+    [
         'id'          => 'solarplus',
         'title'       => 'SolarPlus Platform & Design Engine',
         'client_type' => 'Solar Design, CRM & Quoting System',
@@ -756,17 +772,6 @@ $css_ver = file_exists(get_stylesheet_directory() . '/assets/css/portfolio-page.
             <div class="cs-card-media">
               <img src="<?php echo esc_url($item['image_url']); ?>" alt="<?php echo esc_attr($item['title']); ?>" loading="lazy" />
               <div class="cs-card-media-overlay"></div>
-              
-              <!-- Floating Badges -->
-              <div class="cs-media-badges">
-                <span class="cs-client-badge"><?php echo esc_html($item['category_name']); ?></span>
-                <?php if (!empty($item['metric'])): ?>
-                  <span class="cs-metric-chip">
-                    <i class="fa-solid fa-bolt"></i>
-                    <?php echo esc_html($item['metric']); ?>
-                  </span>
-                <?php endif; ?>
-              </div>
 
               <!-- Quick Expand Lightbox Overlay Button -->
               <button type="button" 

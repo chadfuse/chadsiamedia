@@ -48,6 +48,7 @@ if (!defined('ABSPATH')) {
                 <p class="cs-footer-heading">Company &amp; Work</p>
                 <ul class="cs-footer-links">
                     <li><a href="<?php echo esc_url(home_url('/portfolio/')); ?>">Featured Portfolio</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/case-study/')); ?>">Engineering Case Studies</a></li>
                     <li><a href="<?php echo esc_url(home_url('/about-me/')); ?>">About Chad Sia</a></li>
                     <li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Technical Publication</a></li>
                     <li><a href="<?php echo esc_url(home_url('/locations/')); ?>">Global Locations</a></li>

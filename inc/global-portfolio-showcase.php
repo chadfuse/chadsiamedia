@@ -30,6 +30,18 @@ if (!defined('ABSPATH')) {
 function cs_get_default_portfolio_items() {
     return [
         [
+            'id'           => 'cowper-residences',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/cowper-residences-showcase.webp',
+            'title'        => 'Cowper Residences Footscray',
+            'client_type'  => 'WordPress Customisation & Real Estate Development',
+            'metric_badge' => 'Custom Real Estate Theme',
+            'description'  => 'Engineered bespoke WordPress theme customisations for Cowper Residences—a premier multi-residential real estate development in Footscray featuring luxury apartments, SOHOs, and townhouses with interactive floorplans and inquiry registration.',
+            'tags'         => 'WordPress Customisation, Real Estate Portal, Interactive Floorplans, Custom Post Types, Lead Engine',
+            'project_url'  => '/contact/?project=cowper-residences',
+            'live_url'     => 'https://cowperresidences.com.au/',
+            'live_text'    => 'View Live Platform'
+        ],
+        [
             'id'           => 'solarplus',
             'image_url'    => 'https://chadsia.com/wp-content/uploads/2024/10/Solarplus.webp',
             'title'        => 'SolarPlus Platform & Design Engine',

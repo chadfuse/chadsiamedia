@@ -110,12 +110,13 @@ $css_ver = file_exists(get_stylesheet_directory() . '/assets/css/core-templates.
 
       <!-- Author Bio Box -->
       <div class="cs-author-box">
-        <img src="https://chadsia.com/wp-content/uploads/2024/10/Chad-Sia.png" alt="Chad Sia" class="cs-author-avatar" />
+        <img src="https://chadsia.com/wp-content/uploads/2026/09/chad-sia.jpg" alt="Chad Sia" class="cs-author-avatar" width="100" height="100" loading="lazy" />
         <div class="cs-author-info">
-          <h3>Written by Chad Sia</h3>
-          <span class="cs-author-role">Senior Front-End Architect &amp; Custom WordPress Engineer (17+ Years)</span>
+          <div class="cs-eyebrow" style="margin-bottom: 4px;">Author &amp; Architect</div>
+          <h3>Chad Sia</h3>
+          <span class="cs-author-role">Senior Front-End Architect &amp; Custom WordPress Engineer (17+ Years Experience)</span>
           <p>
-            Chad Sia specializes in building sub-second web platforms, bespoke WordPress architectures, and high-converting acquisition funnels for global founders and brands.
+            Chad Sia specializes in building sub-second web platforms, bespoke WordPress architectures, headless CMS migrations, and high-converting acquisition funnels for global founders and brands.
           </p>
         </div>
       </div>

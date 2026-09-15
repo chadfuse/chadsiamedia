@@ -5757,15 +5757,7 @@ a.cs-dir-chip.active {
 
 /* Media Floating Badges */
 .cs-media-badges {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-  z-index: 2;
+  display: none !important;
 }
 
 .cs-client-badge {
@@ -6610,13 +6602,14 @@ a.cs-dir-chip.active {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
-  color: #065f46;
-  background: #ecfdf5;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 3px 10px;
-  border-radius: 6px;
+  color: #10b981;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 .cs-portrait-img-wrap {
@@ -7870,6 +7863,68 @@ a.cs-dir-chip.active {
   border: none;
   color: inherit;
   padding: 0;
+}
+
+/* Author Bio Box */
+.cs-author-box {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #ffffff;
+  border: 1px solid var(--cs-core-border, #e5e7eb);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 48px 0 36px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.cs-author-box .cs-author-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4968f8;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(73, 104, 248, 0.25);
+}
+
+.cs-author-box .cs-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-author-box .cs-author-info h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 4px;
+  line-height: 1.25;
+}
+
+.cs-author-box .cs-author-role {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4968f8;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.cs-author-box .cs-author-info p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .cs-author-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 18px;
+  }
 }
 
 /* Post Navigation Cards */

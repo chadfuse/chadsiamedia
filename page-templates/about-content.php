@@ -47,7 +47,9 @@ $css_ver = file_exists(get_stylesheet_directory() . '/assets/css/about-page.css'
       "Conversion Funnel Architecture",
       "UI/UX Design Systems",
       "TypeScript",
-      "React",
+      "Vue.js",
+      "Nuxt.js",
+      "Vuetify",
       "WooCommerce"
     ],
     "worksFor": {
@@ -128,7 +130,7 @@ $css_ver = file_exists(get_stylesheet_directory() . '/assets/css/about-page.css'
           </div>
 
           <div class="cs-portrait-img-wrap">
-            <img src="https://chadsia.com/wp-content/uploads/2024/10/Chad-Sia.png" alt="Chad Sia - Senior Front-End Architect" loading="eager" />
+            <img src="https://chadsia.com/wp-content/uploads/2026/09/Chad-Sia-Media.jpg.webp" alt="Chad Sia - Senior Front-End Architect" width="600" height="600" loading="eager" />
             
             <!-- Floating Glass Badges -->
             <div class="cs-float-badge cs-float-top-left">
@@ -348,12 +350,12 @@ $css_ver = file_exists(get_stylesheet_directory() . '/assets/css/about-page.css'
 
         <div class="cs-tech-col">
           <div class="cs-tech-col-header">
-            <i class="fa-brands fa-react cs-tech-col-icon"></i>
+            <i class="fa-brands fa-vuejs cs-tech-col-icon"></i>
             <h3>Frameworks &amp; UI</h3>
           </div>
           <div class="cs-tech-badge-list">
-            <span class="cs-tech-badge"><i class="fa-brands fa-react"></i> React / Next.js</span>
-            <span class="cs-tech-badge"><i class="fa-brands fa-vuejs"></i> Vue.js</span>
+            <span class="cs-tech-badge"><i class="fa-brands fa-vuejs"></i> Vuejs / Nuxtjs</span>
+            <span class="cs-tech-badge"><i class="fa-solid fa-layer-group"></i> Vuetify</span>
             <span class="cs-tech-badge"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
             <span class="cs-tech-badge"><i class="fa-brands fa-figma"></i> Figma Auto-Layout</span>
             <span class="cs-tech-badge"><i class="fa-solid fa-swatchbook"></i> Design Systems</span>
