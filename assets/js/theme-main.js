@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 4. Global Reviews Slider
+  // 4. Global Reviews Slider (Optimized Non-Blocking Layout)
   const sliders = document.querySelectorAll('.cs-reviews-slider');
   sliders.forEach(slider => {
     const track = slider.querySelector('.cs-reviews-track');
@@ -116,10 +116,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (track && cards.length > 0) {
       let currentIndex = 0;
       let autoPlayInterval = null;
+      let cachedCardWidth = 0;
 
       const getCardsPerView = () => {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 720) return 2;
+        const w = window.innerWidth;
+        if (w >= 1024) return 3;
+        if (w >= 720) return 2;
         return 1;
       };
 
@@ -146,25 +148,28 @@ document.addEventListener('DOMContentLoaded', function () {
       };
 
       const updateSlider = () => {
-        const maxIndex = getMaxIndex();
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
-        if (currentIndex < 0) currentIndex = 0;
+        window.requestAnimationFrame(() => {
+          const maxIndex = getMaxIndex();
+          if (currentIndex > maxIndex) currentIndex = maxIndex;
+          if (currentIndex < 0) currentIndex = 0;
 
-        const card = cards[0];
-        const gap = 24;
-        const cardWidth = card.offsetWidth + gap;
-        const offset = -(currentIndex * cardWidth);
-        track.style.transform = `translate3d(${offset}px, 0, 0)`;
+          if (!cachedCardWidth && cards[0]) {
+            cachedCardWidth = cards[0].getBoundingClientRect().width + 24;
+          }
 
-        if (prevBtn) prevBtn.disabled = currentIndex === 0;
-        if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+          const offset = -(currentIndex * (cachedCardWidth || 360));
+          track.style.transform = `translate3d(${offset}px, 0, 0)`;
 
-        if (dotsContainer) {
-          const dots = dotsContainer.querySelectorAll('.cs-slider-dot');
-          dots.forEach((dot, idx) => {
-            dot.classList.toggle('active', idx === currentIndex);
-          });
-        }
+          if (prevBtn) prevBtn.disabled = currentIndex === 0;
+          if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+
+          if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('.cs-slider-dot');
+            dots.forEach((dot, idx) => {
+              dot.classList.toggle('active', idx === currentIndex);
+            });
+          }
+        });
       };
 
       const goToSlide = (index) => {
@@ -202,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentIndex = 0;
           }
           updateSlider();
-        }, 6000);
+        }, 7000);
       };
 
       const resetAutoPlay = () => {
@@ -212,20 +217,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
       slider.addEventListener('mouseenter', () => {
         if (autoPlayInterval) clearInterval(autoPlayInterval);
-      });
+      }, { passive: true });
 
       slider.addEventListener('mouseleave', () => {
         startAutoPlay();
-      });
+      }, { passive: true });
 
+      let resizeTimer;
       window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          cachedCardWidth = 0;
+          updateDots();
+          updateSlider();
+        }, 100);
+      }, { passive: true });
+
+      // Defer initial layout calculations until after paint
+      window.requestAnimationFrame(() => {
         updateDots();
         updateSlider();
+        startAutoPlay();
       });
-
-      updateDots();
-      updateSlider();
-      startAutoPlay();
     }
   });
 });

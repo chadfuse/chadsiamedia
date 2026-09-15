@@ -69,9 +69,13 @@ html, body {
 }
 
 .cs-header-logo-img {
-  height: 40px;
+  width: 160px;
+  height: 82px;
+  max-height: 40px;
   width: auto;
+  aspect-ratio: 160 / 82;
   object-fit: contain;
+  display: block;
 }
 
 .cs-logo-dark { display: none; }
@@ -127,7 +131,7 @@ html, body {
   }
 }
 
-/* Hero Critical */
+/* Hero Critical Layout & Sizing Stability */
 .cs-home-wrapper {
   background-color: var(--cs-hm-bg);
   color: var(--cs-hm-text-body);
@@ -135,6 +139,7 @@ html, body {
   min-height: 100vh;
   position: relative;
   overflow-x: clip;
+  contain: paint;
 }
 
 .cs-home-hero {
@@ -144,7 +149,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0 60px;
+  padding: 110px 0 60px;
   color: var(--cs-hm-text-dark);
   overflow: hidden;
   background: #ffffff;
@@ -215,18 +220,87 @@ html, body {
 
 .cs-home-hero-title {
   font-family: var(--cs-font-display);
-  font-size: clamp(32px, 5.5vw, 64px);
+  font-size: clamp(34px, 5.5vw, 56px);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.25;
   letter-spacing: -0.03em;
-  color: var(--cs-hm-text-dark);
-  margin: 0 0 24px;
+  color: #111827;
+  margin: 0 0 22px;
+}
+
+/* Rect Mask and Mask Wipe Typography In Critical Path */
+.cs-rect-mask {
+  display: inline-block;
+  background: #4968f8;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+  padding: 2px 14px 4px;
+  border-radius: 6px;
+  line-height: 1.15;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: 0 4px 18px rgba(73, 104, 248, 0.28);
+  margin: 0 2px;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.cs-mask-wipe-wrap {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  margin: 0 2px;
+}
+
+.cs-mask-wipe-text {
+  display: inline-block;
+  color: #111827;
+  font-weight: 800;
+  padding: 2px 14px 4px;
+  line-height: 1.15;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.cs-mask-wipe-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #4968f8;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+  padding: 2px 14px 4px;
+  border-radius: 6px;
+  line-height: 1.15;
+  font-weight: 800;
+  box-shadow: 0 4px 18px rgba(73, 104, 248, 0.28);
+  pointer-events: none;
+  z-index: 2;
+  box-sizing: border-box;
+  clip-path: inset(0 0 0 100%);
+  will-change: clip-path;
+}
+
+.cs-mask-wipe-badge.is-revealing,
+body.cs-page-loaded .cs-mask-wipe-badge {
+  animation: csMaskRevealAndUnrevealOnce 3.2s cubic-bezier(0.65, 0, 0.35, 1) 0.3s 1 normal forwards;
+}
+
+@keyframes csMaskRevealAndUnrevealOnce {
+  0% { clip-path: inset(0 0 0 100%); }
+  28% { clip-path: inset(0 0 0 0); }
+  72% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 100% 0 0); }
 }
 
 .cs-home-hero-subtitle {
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 1.6;
-  color: var(--cs-hm-text-body);
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.65;
+  color: #1e293b;
+  font-weight: 500;
   max-width: 680px;
   margin: 0 auto 36px;
 }
@@ -270,5 +344,14 @@ html, body {
   .cs-home-hero {
     padding: 110px 0 50px;
     min-height: auto;
+  }
+  .cs-rect-mask,
+  .cs-mask-wipe-text,
+  .cs-mask-wipe-badge {
+    padding: 2px 10px;
+    border-radius: 4px;
+  }
+  .cs-mask-wipe-wrap {
+    margin: 3px 0;
   }
 }

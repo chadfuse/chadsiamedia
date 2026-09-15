@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
             <!-- Column 1: Brand & Status -->
             <div class="cs-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="cs-header-logo" rel="home">
-                    <img src="https://chadsia.com/wp-content/uploads/2024/10/logo-cds.webp" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" class="cs-header-logo-img" width="697" height="359">
+                    <img src="https://chadsia.com/wp-content/uploads/2024/10/logo-cds.webp" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" class="cs-header-logo-img cs-footer-logo-img" width="160" height="82" loading="lazy" decoding="async">
                 </a>
                 <p>
                     Senior front-end architect and custom WordPress engineer with 17+ years of craft delivering sub-second web platforms globally.

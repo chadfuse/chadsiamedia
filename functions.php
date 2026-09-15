@@ -48,7 +48,7 @@ function chadsia_enqueue_theme_scripts() {
         is_page_template('page-templates/template-case-study-single.php') ||
         is_page('case-study') ||
         is_page('chadsia-media-architecture-revamp') ||
-        (is_page() && strpos(get_post_field('post_name', get_the_ID()), 'case-study') !== false)) {
+        (is_singular('page') && strpos((string) get_post_field('post_name', get_the_ID()), 'case-study') !== false)) {
         $cs_css = $dir . '/assets/css/case-study-page.css';
         if (file_exists($cs_css)) {
             wp_enqueue_style(
@@ -83,6 +83,31 @@ add_action('wp_enqueue_scripts', function() {
     wp_dequeue_style('hello-elementor-header-footer');
     wp_dequeue_style('hello-elementor-reset');
 }, 99);
+
+// WP Rocket Exclusions for Above-the-Fold Assets & PageSpeed Optimization
+add_filter('rocket_lazyload_excluded_attributes', function ($attributes) {
+    if (!is_array($attributes)) $attributes = [];
+    $attributes[] = 'data-no-lazy="1"';
+    $attributes[] = 'no-lazy';
+    $attributes[] = 'cs-header-logo-img';
+    $attributes[] = 'cs-logo-white';
+    $attributes[] = 'cs-logo-dark';
+    $attributes[] = 'cs-portrait-img';
+    return array_unique($attributes);
+});
+
+add_filter('rocket_lazyload_excluded_src', function ($src) {
+    if (!is_array($src)) $src = [];
+    $src[] = 'logo-cds.webp';
+    $src[] = 'logo-chadsia.webp';
+    $src[] = 'Chad-Sia-Media.jpg.webp';
+    return array_unique($src);
+});
+
+// Preload critical above-the-fold logo image for instant LCP
+add_action('wp_head', function() {
+    echo '<link rel="preload" as="image" href="https://chadsia.com/wp-content/uploads/2024/10/logo-cds.webp" type="image/webp" fetchpriority="high">' . "\n";
+}, 1);
 
 // Register ACF JSON Save & Load Points in Theme
 add_filter('acf/settings/save_json', function ($path) {
