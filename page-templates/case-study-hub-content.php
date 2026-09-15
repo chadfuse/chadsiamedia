@@ -105,13 +105,71 @@ if (!defined('ABSPATH')) {
             </div>
 
             <div class="cs-hub-grid">
-                <!-- Case Study 1: SolarPlus -->
+                <!-- Case Study 1: OLJ-Worker Edge AI Pipeline -->
+                <article class="cs-grid-card">
+                    <div class="cs-grid-media">
+                        <img src="https://chadsia.com/wp-content/uploads/2026/05/headless-CMS-architecture-1779610349.jpg" 
+                             alt="OLJ-Worker Serverless AI Automation" 
+                             width="600" height="340" loading="lazy" />
+                        <span class="cs-grid-badge">Serverless Edge AI</span>
+                    </div>
+                    <div class="cs-grid-content">
+                        <div class="cs-card-tags">
+                            <span class="cs-tag">Cloudflare Workers</span>
+                            <span class="cs-tag">Gemini 2.5 Flash</span>
+                            <span class="cs-tag">KV Caching</span>
+                        </div>
+                        <h3 class="cs-grid-title">
+                            <a href="<?php echo esc_url(home_url('/case-study/olj-worker-ai-automation/')); ?>">
+                                OLJ-Worker: Autonomous Job Intelligence & Gemini AI Proposal Engine
+                            </a>
+                        </h3>
+                        <p class="cs-grid-excerpt">
+                            Edge-native Cloudflare Worker with KV session caching, Google Gemini 2.5 fit scoring, anti-spam screening trap detection, and real-time Discord/Telegram telemetry.
+                        </p>
+                        <div class="cs-grid-actions">
+                            <a href="<?php echo esc_url(home_url('/case-study/olj-worker-ai-automation/')); ?>" class="cs-btn cs-btn-primary">Read Deep Dive &rarr;</a>
+                            <a href="<?php echo esc_url(home_url('/case-study/olj-worker-ai-automation/')); ?>" class="cs-link-arrow">Architecture &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 2: Command Center Omnichannel Engine -->
+                <article class="cs-grid-card">
+                    <div class="cs-grid-media">
+                        <img src="https://chadsia.com/wp-content/uploads/2026/05/web-performance-optimization-1779610334.jpg" 
+                             alt="Command Center Multi-Model Publishing Engine" 
+                             width="600" height="340" loading="lazy" />
+                        <span class="cs-grid-badge">Multi-Model AI Publisher</span>
+                    </div>
+                    <div class="cs-grid-content">
+                        <div class="cs-card-tags">
+                            <span class="cs-tag">Multi-Model AI</span>
+                            <span class="cs-tag">REST APIs</span>
+                            <span class="cs-tag">Social Syndication</span>
+                        </div>
+                        <h3 class="cs-grid-title">
+                            <a href="<?php echo esc_url(home_url('/case-study/command-center-content-engine/')); ?>">
+                                Command Center: Omnichannel Content Engine & Multi-Model Publisher
+                            </a>
+                        </h3>
+                        <p class="cs-grid-excerpt">
+                            Automated publishing pipeline with RSS ingestion, Google Gemini 2.5 editorial synthesis, 6-tier image fallback (Imagen 3, Flux), and cross-posting to WordPress, LinkedIn, & Meta APIs.
+                        </p>
+                        <div class="cs-grid-actions">
+                            <a href="<?php echo esc_url(home_url('/case-study/command-center-content-engine/')); ?>" class="cs-btn cs-btn-primary">Read Deep Dive &rarr;</a>
+                            <a href="<?php echo esc_url(home_url('/case-study/command-center-content-engine/')); ?>" class="cs-link-arrow">Architecture &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 3: SolarPlus -->
                 <article class="cs-grid-card">
                     <div class="cs-grid-media">
                         <img src="https://chadsia.com/wp-content/uploads/2024/10/Solarplus.webp" 
                              alt="SolarPlus Design Platform" 
                              width="600" height="340" loading="lazy" />
-                        <span class="cs-grid-badge">Custom UI/UX & Quoting Tool</span>
+                        <span class="cs-grid-badge">Custom UI/UX &amp; Quoting Tool</span>
                     </div>
                     <div class="cs-grid-content">
                         <div class="cs-card-tags">
@@ -119,7 +177,7 @@ if (!defined('ABSPATH')) {
                             <span class="cs-tag">Quoting Engine</span>
                             <span class="cs-tag">Custom Frontend</span>
                         </div>
-                        <h3 class="cs-grid-title">SolarPlus Platform & Design Engine</h3>
+                        <h3 class="cs-grid-title">SolarPlus Platform &amp; Design Engine</h3>
                         <p class="cs-grid-excerpt">
                             End-to-end UI/UX and responsive front-end engineering for SolarPlus—featuring solar array design canvas, CRM workflows, and automated quotation calculation.
                         </p>
