@@ -536,17 +536,9 @@ add_action('template_redirect', function () {
 });
 
 /**
- * Critical Request Chain & PageSpeed Performance Optimizations
+ * Critical Request Chain & Output Optimizations
  */
-// 1. Asynchronous non-blocking load for master theme CSS on homepage where critical CSS is inlined
-add_filter('style_loader_tag', function ($html, $handle, $href, $media) {
-    if ($handle === 'cs-master-theme-style' && (is_front_page() || is_home())) {
-        return '<link rel="preload" as="style" href="' . esc_url($href) . '">' .
-               '<link rel="stylesheet" id="' . esc_attr($handle) . '-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'">' .
-               '<noscript>' . $html . '</noscript>';
-    }
-    return $html;
-}, 10, 4);
+
 
 // 2. Output Buffer Filter: Strip Render-Blocking GoDaddy Telemetry & Defer Cloudflare Beacons
 add_action('template_redirect', function () {
