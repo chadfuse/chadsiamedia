@@ -31,7 +31,7 @@ function cs_get_default_portfolio_items() {
     return [
         [
             'id'           => 'this-spa-wellness',
-            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/this-spa-wellness-showcase.webp',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/this-spa-wellness-showcase.webp?v=20260922',
             'title'        => 'This Spa & Wellness',
             'client_type'  => 'WordPress & Divi Builder Customisation',
             'metric_badge' => 'WordPress Divi Build',
@@ -43,7 +43,7 @@ function cs_get_default_portfolio_items() {
         ],
         [
             'id'           => 'core-fitness',
-            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/core-fitness-showcase.webp',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/core-fitness-showcase.webp?v=20260922',
             'title'        => 'Core Fitness Platform',
             'client_type'  => 'WordPress & Divi Builder Fitness Portal',
             'metric_badge' => 'WordPress Divi Build',
