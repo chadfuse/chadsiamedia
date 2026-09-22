@@ -30,6 +30,30 @@ if (!defined('ABSPATH')) {
 function cs_get_default_portfolio_items() {
     return [
         [
+            'id'           => 'this-spa-wellness',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/this-spa-wellness-showcase.webp',
+            'title'        => 'This Spa & Wellness',
+            'client_type'  => 'WordPress & Divi Builder Customisation',
+            'metric_badge' => 'WordPress Divi Build',
+            'description'  => 'Engineered a bespoke WordPress wellness sanctuary website using Divi Builder with custom responsive layouts, interactive treatment menus, and high-converting service booking flows.',
+            'tags'         => 'WordPress Development, Divi Builder, Custom CSS, Wellness Sanctuary, Booking Funnel',
+            'project_url'  => '/contact/?project=this-spa-wellness',
+            'live_url'     => 'https://chadsia.com/this-spa-wellness/',
+            'live_text'    => 'View Live Site'
+        ],
+        [
+            'id'           => 'core-fitness',
+            'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/core-fitness-showcase.webp',
+            'title'        => 'Core Fitness Platform',
+            'client_type'  => 'WordPress & Divi Builder Fitness Portal',
+            'metric_badge' => 'WordPress Divi Build',
+            'description'  => 'Architected a high-energy fitness and personal coaching platform built on WordPress and Divi Builder, featuring custom membership tier funnels, online training showcases, and lead generation.',
+            'tags'         => 'WordPress Development, Divi Builder, Fitness Platform, Membership Funnel, High-Converting UI',
+            'project_url'  => '/contact/?project=core-fitness',
+            'live_url'     => 'https://chadsia.com/core-fitness/',
+            'live_text'    => 'View Live Site'
+        ],
+        [
             'id'           => 'cowper-residences',
             'image_url'    => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/cowper-residences-showcase.webp',
             'title'        => 'Cowper Residences Footscray',

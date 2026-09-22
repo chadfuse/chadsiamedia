@@ -18,6 +18,38 @@ $portfolio_items = [
     // 1. WEB PLATFORMS
     // ==========================================
     [
+        'id'          => 'this-spa-wellness',
+        'title'       => 'This Spa & Wellness',
+        'client_type' => 'WordPress & Divi Builder Customisation',
+        'category'    => 'web-dev',
+        'categories'  => ['web-dev', 'ui-ux'],
+        'category_name' => 'WordPress Divi Build',
+        'image_url'   => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/this-spa-wellness-showcase.webp',
+        'full_image_url' => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/this-spa-wellness-showcase.jpg',
+        'description' => 'Engineered a bespoke WordPress wellness sanctuary website using Divi Builder with custom responsive layouts, interactive treatment menus, and high-converting service booking flows.',
+        'metric'      => 'WordPress Divi Architecture',
+        'tags'        => ['WordPress Development', 'Divi Builder', 'Custom CSS', 'Wellness Sanctuary', 'Booking Funnel'],
+        'live_url'    => 'https://chadsia.com/this-spa-wellness/',
+        'cta_text'    => 'View Live Site',
+        'is_lightbox' => false
+    ],
+    [
+        'id'          => 'core-fitness',
+        'title'       => 'Core Fitness Platform',
+        'client_type' => 'WordPress & Divi Builder Fitness Portal',
+        'category'    => 'web-dev',
+        'categories'  => ['web-dev', 'ui-ux'],
+        'category_name' => 'WordPress Divi Build',
+        'image_url'   => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/core-fitness-showcase.webp',
+        'full_image_url' => 'https://chadsia.com/wp-content/themes/chadsia/assets/images/core-fitness-showcase.jpg',
+        'description' => 'Architected a high-energy fitness and personal coaching platform built on WordPress and Divi Builder, featuring custom membership tier funnels, online training showcases, and lead generation.',
+        'metric'      => 'WordPress Divi Architecture',
+        'tags'        => ['WordPress Development', 'Divi Builder', 'Fitness Platform', 'Membership Funnel', 'High-Converting UI'],
+        'live_url'    => 'https://chadsia.com/core-fitness/',
+        'cta_text'    => 'View Live Site',
+        'is_lightbox' => false
+    ],
+    [
         'id'          => 'cowper-residences',
         'title'       => 'Cowper Residences Footscray',
         'client_type' => 'WordPress Customisation & Real Estate Development',
